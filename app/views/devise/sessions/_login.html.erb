@@ -1,0 +1,42 @@
+<form id="login-form">
+  <div class="modal-body pb-5">
+    <h4 class="text-center heading mt-10 mb-20">ログイン</h4>
+    <button class="btn btn-facebook btn-block">Facebookでログイン</button>
+    <div class="modal-seperator">
+      <span>or</span>
+    </div>
+    <div class="form-group">
+      <input id="login_username" class="form-control" placeholder="ユーザーネーム" type="text">
+    </div>
+    <div class="form-group">
+      <input id="login_password" class="form-control" placeholder="パスワード" type="password">
+    </div>
+    <div class="form-group">
+      <div class="row gap-5">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="checkbox-block fa-checkbox">
+            <input id="remember_me_checkbox" name="remember_me_checkbox" class="checkbox" value="First Choice" type="checkbox"> 
+            <label class="" for="remember_me_checkbox">ログイン情報を記憶する</label>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+          <button id="login_lost_btn" type="button" class="btn btn-link">パスワードをお忘れですか?</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="row gap-10">
+      <div class="col-xs-6 col-sm-6 mb-10">
+        <button type="submit" class="btn btn-primary btn-block">ログイン</button>
+      </div>
+      <div class="col-xs-6 col-sm-6 mb-10">
+        <button type="submit" class="btn btn-primary btn-block btn-inverse" data-dismiss="modal" aria-label="Close">戻る</button>
+      </div>
+    </div>
+    <div class="text-left">
+      まだアカウントをお持ちでない場合は
+      <button id="login_register_btn" type="button" class="btn btn-link">こちら</button>
+    </div>
+  </div>
+</form>
