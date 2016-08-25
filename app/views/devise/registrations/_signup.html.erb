@@ -1,0 +1,36 @@
+<form id="register-form" style="display:none;">
+  <div class="modal-body pb-5">
+    <h3 class="text-center heading mt-10 mb-20">新規登録</h3>
+    <button class="btn btn-facebook btn-block">Facebookで登録</button>
+    <div class="modal-seperator">
+      <span>or</span>
+    </div>
+    <div class="form-group">
+      <input id="register_username" class="form-control" type="text" placeholder="ユーザーネーム">
+    </div>
+    <div class="form-group">
+      <input id="register_email" class="form-control" type="email" placeholder="Emailアドレス">
+    </div>
+    <div class="form-group">
+      <input id="register_password" class="form-control" type="password" placeholder="パスワード">
+    </div>
+    <div class="form-group">
+      <input id="register_password_confirm" class="form-control" type="password" placeholder="パスワードを再入力">
+    </div>
+
+  </div>
+  <div class="modal-footer mt-10">
+    <div class="row gap-10">
+      <div class="col-xs-6 col-sm-6 mb-10">
+        <button type="submit" class="btn btn-primary btn-block">登録</button>
+      </div>
+      <div class="col-xs-6 col-sm-6 mb-10">
+        <button type="submit" class="btn btn-primary btn-inverse btn-block" data-dismiss="modal" aria-label="Close">戻る</button>
+      </div>
+    </div>
+    <div class="text-left">
+        すでにアカウントをお持ちの場合は<button id="register_login_btn" type="button" class="btn btn-link">こちら</button>
+    </div>
+  </div>
+</form>
+<%= render partial: 'devise/mailer/passchange'%>
