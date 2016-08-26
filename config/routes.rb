@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root "exhibits#index"
-  devise_for :users, :controllers => { :sessions => 'exhibits/sessions'
-}
+  root to: "users#index"
+  devise_for :users, :controllers => { sessions: 'users/sessions' , registrations: 'users/registrations' }
 end
