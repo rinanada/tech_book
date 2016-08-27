@@ -10,16 +10,18 @@
 - 型 :カラム名
 
 ###各ページ
-####各ページについて補足説明、上から順に優先度高め
+- 各ページについて補足説明、上から順に優先度高め
  -->
 
 # User
 ---
 ## association
 
-- has_many :exibits
+- has_many :posts
 - has_many :reviews
 - has_many :likes
+- has_many :buyings
+- has_many :messages
 
 ## table
 
@@ -33,8 +35,9 @@
 - integer :postal_code
 
 
+<!-- usersコントローラー→ログイン周り、ユーザー紹介・詳細画面、購入 -->
 
-# Exibit
+# Post
 ---
 ## association
 
@@ -42,6 +45,7 @@
 - belongs_to :category
 - has_one :captureimages
 - has_many :reviews
+- has_many :buyings
 
 ## table
 
@@ -54,31 +58,44 @@
 
 <!-- +price消費税 -->
 <!-- stateで本の 可/良い/非常に良い/ほぼ新品 enum -->
-
+<!-- postsコントローラー→出品(if user sign inで) -->
 
 # CaptureImage
 ---
 ## association
 
-- has_one :exibit
+- belongs_to :post
 
 ## table
 
-- integer :exibit_id
+- integer :post_id
 - text :content
+
+#Buying
+---
+## association
+
+- belongs_to :post
+- belongs_to :user
+
+
+## table
+
+- integer :post_id
+- integer :user_id
 
 #Category
 ---
 
 ## association
-- has_many :exibits
+- has_many :post
 
 ## table
-- integer :design
 - integer :langage
+- integer :design
 - integer :other
 
-<!-- 後々大区分、小区分と分けられたら。 -->
+<!-- 後々大区分、小区分と分けられたら...STI  -->
 
 
 # Like
@@ -96,53 +113,78 @@
 -
 ## association
 
-- belongs_to :exibit
+- belongs_to :post
 - belongs_to :user
 
 ## table
 
 - text :review_text
 - integer :user_id
-- integer :exibit_id
+- integer :post_id
+
+# Message
+-
+## association
+
+- belongs_to :user
+
+## table
+
+- text :body
 
 
-
+#ページごとの機能、（上から順に優先度高め）
 
 ###トップページ
 
-####必須...ユーザーセッション
-####新着図書...図書自体にお気に入りや星での評価はなし、メインタイトルとレビュー数と値段は載せたい
-####モーダルでユーザー周りをやれば元のデザインに支障ないのかなぁ
-####twitter,facebook認証機能OmniAuth
-####最初にユーザーを集めるために「登録してから三ヶ月は手数料無料」などど公告
-
+- ユーザーセッション
+- フラッシュメッセージ
+- お問い合わせメール
+- Ransackで検索機能（全文検索、単語検索）
+- facebook認証（omniauth）
+- 新着図書...図書自体にお気に入りや星での評価はなし、メインタイトルとレビュー数と値段は載せたい
+- 住所の郵便番号登録で都道府県が出る
+- パスワード再通知メッセージ
+- Categoryからタグを作って、タグを作成するよりもSQL発行回数を減らす
+- twitter認証機能
+- 最初にユーザーを集めるために「登録してから三ヶ月は手数料無料」などど公告
+- メッセージ機能でSTI→ 一般メッセージ、お問い合わせ、招待メッセージ、メール認証etc...
 
 
 ###user profile画面
 
-#### 必須...lastname, firstname, pro_img, introduction, email, callnumber, address,  postal_code
-#### followはオンオフをenumで,もしくは出品のお気に入りユーザー登録をlikes_count
-#### 出品者の使用言語やスキルを表示
-#### 購入履歴、出品履歴
-#### メール、電話番号、住所などは公開範囲設定
-#### tech book score...本の紹介文に誤りのない信用できる出品者であるか、お気に入りがよくされているか、幅広い言語を扱っているか、などを点数つけてくれるとか。
+- 必須...lastname, firstname, pro_img, introduction, email, callnumber, address,  postal_code
+- followはオンオフをenumで,もしくは出品のお気に入りユーザー登録をlikes_count
+- 出品者の使用言語やスキルを表示
+- 購入履歴、出品履歴
+- メール、電話番号、住所などは公開範囲設定
+- tech book score...本の紹介文に誤りのない信用できる出品者であるか、お気に入りがよくされているか、幅広い言語を扱っているか、などを点数つけてくれるとか。
 
 
-###購入画面
+### 購入画面
 
-####銀行手続き、メール
-####
+- 銀行手続き、メール
+- クレジット、コンビニ
 
 
-###出品画面
+###購入完了画面
+- お届け先詳細、マイページへのリンク
 
-####買いたい側のreview
-####カートに入れる機能
+
+###商品詳細画面
+
+- お問い合わせ
+- 関連書籍
+- 画面を小さくすると商品画像のデザインが崩れるのを修正
+- カートに入れる機能
+- 買いたい側のreview
+- reviewでポリモーフィック関連で、answersとquestion
 
 
 ###管理画面
 
-####rails admin
+- rails admin
+- 余裕があったら綺麗なビューも欲しい
 
 
 
