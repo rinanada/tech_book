@@ -51,7 +51,7 @@
                           <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
-                          <li><a href="#">マイページ</a></li>
+                          <li><%= link_to "マイページ", user_path(current_user) %></li>
                           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                         </ul>
                       </li>
