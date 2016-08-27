@@ -11,18 +11,10 @@ class ApplicationController < ActionController::Base
     # sign_inのときに、group_keyも許可する
       devise_parameter_sanitizer.permit(:sign_in, keys:[:username, :password, :email])
     # sign_upのときに、group_keyも許可する
-      devise_parameter_sanitizer.permit(:sign_up, keys:[:username, :email])
+      devise_parameter_sanitizer.permit(:sign_up, keys:[:username])
     #account_updateのときに、group_keyも許可する
       devise_parameter_sanitizer.permit(:account_update, keys:[:username])
   end
 
 
-  def after_sign_in_path_for(resource)
-    binding.pry
-    root_path
-  end
-
-  def after_sign_out_path_for(resource)
-    admin_root_path
-  end
 end

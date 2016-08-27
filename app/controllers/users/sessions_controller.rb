@@ -11,9 +11,8 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def create
-    binding.pry
     self.resource = warden.authenticate!(auth_options)
-    binding.pry
+    # binding.pry
     set_flash_message!(:notice, :signed_in)
     sign_in(resource_name, resource)
     yield resource if block_given?
