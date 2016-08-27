@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827052837) do
+ActiveRecord::Schema.define(version: 20160827082726) do
+
+  create_table "buyings", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "exhibit_id", limit: 4
+    t.integer  "user_id",    limit: 4
+  end
 
   create_table "exhibits", force: :cascade do |t|
     t.datetime "created_at"
