@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825092331) do
+ActiveRecord::Schema.define(version: 20160827052837) do
+
+  create_table "exhibits", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title",       limit: 255
+    t.string   "sub_title",   limit: 255
+    t.integer  "price",       limit: 4
+    t.integer  "state",       limit: 4
+    t.integer  "user_id",     limit: 4
+    t.integer  "category_id", limit: 4
+  end
 
   create_table "exibits", force: :cascade do |t|
     t.datetime "created_at"
@@ -41,6 +52,10 @@ ActiveRecord::Schema.define(version: 20160825092331) do
     t.text     "introduction",           limit: 65535
     t.integer  "callnumber",             limit: 4
     t.integer  "postal_code",            limit: 4
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
   end

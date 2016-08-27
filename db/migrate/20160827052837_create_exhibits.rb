@@ -1,6 +1,6 @@
-class CreateExibits < ActiveRecord::Migration
+class CreateExhibits < ActiveRecord::Migration
   def change
-    create_table :exibits do |t|
+    create_table :exhibits do |t|
 
       t.timestamps
       t.string :title
@@ -9,6 +9,7 @@ class CreateExibits < ActiveRecord::Migration
       t.integer :state
       t.integer :user_id
       t.integer :category_id
+
     end
   end
 end
