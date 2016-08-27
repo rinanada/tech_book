@@ -1,8 +1,7 @@
 <div class="GridLex-col-3_sm-4_xs-12 mb-30">
   <div class="package-grid-item">
-    <a href="detail-page.html">
       <div class="image">
-        <img src="assets/books/book1.png" alt="Tour Package" />
+        <%= link_to image_tag("books/book1.png"),exhibit_path(exhibit.id) %>
         <div class="absolute-in-image">
           <div class="duration"><span>デザイン</span></div>
         </div>
@@ -19,6 +18,5 @@
           <div class="price">$1422</div>
         </div>
       </div>
-    </a>
   </div>
 </div>
