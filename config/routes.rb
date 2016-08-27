@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :sessions => 'exhibits/sessions'
 }
   resources :exhibits, only: [:show]
+  resources :buyings, only: [:show, :new]
 end
