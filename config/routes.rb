@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :exhibits, only: [:show]
   resources :users, only: [:show]
   resources :buyings, only: [:show, :new]
+
 end

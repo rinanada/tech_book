@@ -3,25 +3,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  # before_action :authenticate_user!
 
 
 
   def configure_permitted_parameters
     # sign_inのときに、group_keyも許可する
-      devise_parameter_sanitizer.permit(:sign_in, keys:[:username, :password])
+      devise_parameter_sanitizer.permit(:sign_in, keys:[:username, :password, :email])
     # sign_upのときに、group_keyも許可する
-      devise_parameter_sanitizer.permit(:sign_up, keys:[:username, :email])
+      devise_parameter_sanitizer.permit(:sign_up, keys:[:username])
     #account_updateのときに、group_keyも許可する
       devise_parameter_sanitizer.permit(:account_update, keys:[:username])
   end
 
 
-  # def after_sign_in_path_for(resource)
-  #   binding.pry
-  #   root_path
-  # end
 
-  # def after_sign_out_path_for(resource)
-  #   admin_root_path
-  # end
 end

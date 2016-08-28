@@ -63,6 +63,10 @@ ActiveRecord::Schema.define(version: 20160827105527) do
     t.text     "pro_img",                limit: 65535
     t.text     "image_cache",            limit: 65535
     t.text     "introduction",           limit: 65535
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
   end
