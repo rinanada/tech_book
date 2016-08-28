@@ -50,8 +50,9 @@
                           <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
-                          <li><%= link_to "マイページ", user_path(current_user) %></li>
-                          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                          <li><%= link_to "My Page", user_path(current_user) %></li>
+                          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                          <li><%= link_to "Favorite List" %></li>
                         </ul>
                       </li>
                       <% end %>
