@@ -154,6 +154,7 @@
 ###user profile画面
 
 - 必須...lastname, firstname, pro_img, introduction, email, callnumber, address,  postal_code
+- ユーザーマイページの登録情報（パスワード）の編集もメール認証にするべきでは。
 - followはオンオフをenumで,もしくは出品のお気に入りユーザー登録をlikes_count
 - 出品者の使用言語やスキルを表示
 - 購入履歴、出品履歴
