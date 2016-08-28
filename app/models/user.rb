@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:username]
          # , :confirmable
   has_many :exibits
+  has_many :buyings
+  has_many :addresses
+  validates :username, :password, presence: true
 
   validates_uniqueness_of :username
   validates_presence_of :username

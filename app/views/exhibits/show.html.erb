@@ -1,26 +1,8 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>techbook</title>
-  <meta name="description" content="エンジニアのための書籍シェアリングサービス" />
-  <meta name="keywords" content="Ruby, Ruby on Rails, JavaScript, PHP, JAVA, デザイン, 技術書, プログラミング, 書籍" />
-  <meta name="author" content="crenoveative">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link href="css/compiled.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-</head>
-<body>
   <div class="clear"></div>
   <!-- start Main Wrapper -->
   <div class="main-wrapper scrollspy-container">
     <!-- start end Page title -->
-    <div class="page-title detail-page-title" style="background-image:url('images/books_on_desk2.jpg');">
+    <div class="page-title detail-page-title" style="background-image:url(<%= asset_path 'books_on_desk2.jpg'%>);">
       <div class="container">
         <div class="flex-row">
           <div class="flex-column flex-md-8 flex-sm-12">
@@ -29,7 +11,7 @@
           </div>
           <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
             <div class="text-right text-left-sm">
-              <a href="#" class="anchor btn btn-primary">購入ページヘ</a>
+              <%= link_to "購入ページへ", new_buying_path(@exhibit), class: "anchor btn btn-primary"%>
             </div>
           </div>
         </div>
@@ -50,7 +32,7 @@
         <div class="row">
           <div class="col-sm-3 col-xs-12   mb-50-xs">
             <div class="scrollspy-sidebar sidebar-detail" role="complementary">
-              <img src="images/books/book1.png" alt="">
+              <img src="<%= asset_path "books/book1.png" %>" />
             </div>
           </div>
           <div class="col-md-9 mt-30-xs" role="main">
@@ -89,7 +71,8 @@
                       </div>
                     </div>
                     <div class="text-center pt-10">
-                      <a href="#" class="btn btn-primary btn-full-width">購入ページヘ</a>
+                      <%= link_to "購入ページへ", new_buying_path(@exhibit), class: "btn btn-primary btn-full-width"%>
+                      <!-- <a href="#" >購入ページヘ</a> -->
                     </div>
                   </div>
                 </div>
@@ -99,11 +82,12 @@
                   </div>
                   <div class="GridLex-gap-20-wrappper package-grid-item-wrapper on-page-result-page alt-smaller">
                     <div class="GridLex-grid-noGutter-equalHeight">
+                    <%= 3.times do%>
                       <div class="GridLex-col-4_sm-4_xs-12 mb-20">
                         <div class="package-grid-item">
                           <a href="#">
                             <div class="image">
-                              <img src="images/books/book9.jpg" alt="Tour Package" />
+                              <img src="<%= asset_path "book9.jpg" %>" alt="Tour Package" />
                               <div class="absolute-in-image">
                                 <div class="duration"><span>デザイン</span></div>
                               </div>
@@ -117,42 +101,7 @@
                           </a>
                         </div>
                       </div>
-                      <div class="GridLex-col-4_sm-4_xs-12 mb-20">
-                        <div class="package-grid-item">
-                          <a href="#">
-                            <div class="image">
-                              <img src="images/books/book9.jpg" alt="Tour Package" />
-                              <div class="absolute-in-image">
-                                <div class="duration"><span>デザイン</span></div>
-                              </div>
-                            </div>
-                            <div class="content clearfix">
-                              <h6>だから、そのデザインはダメなんだ。</h6>
-                              <div class="absolute-in-content">
-                                <div class="price">$1500</div>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                      <div class="GridLex-col-4_sm-4_xs-12 mb-20">
-                        <div class="package-grid-item">
-                          <a href="#">
-                            <div class="image">
-                              <img src="images/books/book9.jpg" alt="Tour Package" />
-                              <div class="absolute-in-image">
-                                <div class="duration"><span>デザイン</span></div>
-                              </div>
-                            </div>
-                            <div class="content clearfix">
-                              <h6>だから、そのデザインはダメなんだ。</h6>
-                              <div class="absolute-in-content">
-                                <div class="price">$1500</div>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
+                    <% end %>
                     </div>
                   </div>
                 </div>
@@ -173,7 +122,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-5 col-md-3">
             <div class="footer-logo">
-              <img src="images/techbook_logo.png" alt="Logo" />
+              <img src="<%= asset_path "techbook_logo.png" %>" alt="Logo" />
             </div>
             <p class="footer-address">150-0000 東京都渋谷区道玄坂２丁目<br>新大宗ビル３号館８階<br/> <i class="fa fa-phone"></i> +66 28 878 5452 <br/> <i class="fa fa-phone"></i> +66 2 547 2223 <br/> <i class="fa fa-envelope-o"></i> <a href="#">support@techbook.com</a></p>
             <div class="footer-social">
@@ -207,25 +156,25 @@
   <!-- end Back To Top -->
 
 <!-- JS -->
-<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-<script type="text/javascript" src="js/SmoothScroll.min.js"></script>
-<script type="text/javascript" src="js/jquery.slicknav.min.js"></script>
-<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-<script type="text/javascript" src="js/instagram.min.js"></script>
-<script type="text/javascript" src="js/spin.min.js"></script>
-<script type="text/javascript" src="js/jquery.introLoader.min.js"></script>
-<script type="text/javascript" src="js/select2.full.js"></script>
-<script type="text/javascript" src="js/jquery.responsivegrid.js"></script>
-<script type="text/javascript" src="js/ion.rangeSlider.min.js"></script>
-<script type="text/javascript" src="js/readmore.min.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/validator.min.js"></script>
-<script type="text/javascript" src="js/jquery.raty.js"></script> 
-<script type="text/javascript" src="js/customs.js"></script>
+<script type="text/javascript" src= "#{ asset_path 'jquery-1.11.3.min.js' }"></script>
+<script type="text/javascript" src="assets/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="assets/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="assets/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="assets/jquery.slicknav.min.js"></script>
+<script type="text/javascript" src="assets/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="assets/instagram.min.js"></script>
+<script type="text/javascript" src="assets/spin.min.js"></script>
+<script type="text/javascript" src="assets/jquery.introLoader.min.js"></script>
+<script type="text/javascript" src="assets/select2.full.js"></script>
+<script type="text/javascript" src="assets/jquery.responsivegrid.js"></script>
+<script type="text/javascript" src="assets/ion.rangeSlider.min.js"></script>
+<script type="text/javascript" src="assets/readmore.min.js"></script>
+<script type="text/javascript" src="assets/slick.min.js"></script>
+<script type="text/javascript" src="assets/validator.min.js"></script>
+<script type="text/javascript" src="assets/jquery.raty.js"></script> 
+<script type="text/javascript" src="assets/customs.js"></script>
 
 <script>
 
@@ -281,6 +230,3 @@
 
 </script>
 
-</body>
-
-</html>

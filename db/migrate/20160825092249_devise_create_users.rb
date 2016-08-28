@@ -21,11 +21,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # User
 
       t.string :username
+      t.string :lastname
+      t.string :firstname
       t.text :pro_img
       t.text :image_cache
       t.text :introduction
-      t.integer :callnumber
-      t.integer :postal_code
 
 
 

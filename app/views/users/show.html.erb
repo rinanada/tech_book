@@ -1,22 +1,4 @@
-<!doctype html>
-<html lang="en">
 
-<head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>techbook</title>
-  <meta name="description" content="エンジニアのための書籍シェアリングサービス" />
-  <meta name="keywords" content="Ruby, Ruby on Rails, JavaScript, PHP, JAVA, デザイン, 技術書, プログラミング, 書籍" />
-  <meta name="author" content="crenoveative">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link href="css/compiled.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700,700italic,300italic,300' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-</head>
-<body>
   <div class="clear"></div>
   <!-- start Main Wrapper -->
   <div class="main-wrapper scrollspy-container">
@@ -37,7 +19,8 @@
     <div class="content-wrapper">
       <div class="container">
         <div class="row">
-          <div class="col-sm-8 col-md-8">
+          <%= form_for(@user, html: {class:"col-sm-8 col-md-8"}) do |f| %>
+          <!-- <div class="col-sm-8 col-md-8"> -->
             <div class="payment-box">
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">購入者情報</h5>
@@ -48,7 +31,8 @@
                     <div class="form-group gap-20">
                       <label class="col-sm-4 col-md-4 control-label">姓</label>
                       <div class="col-sm-8 col-md-6">
-                        <input type="text" class="form-control" value="せきや">
+                        <%= f.text_field :lastname, class: "form-control" %>
+                        <!-- <input type="text" > -->
                       </div>
                     </div>
                   </div>
@@ -56,7 +40,8 @@
                     <div class="form-group gap-20">
                       <label class="col-sm-4 col-md-4 control-label">名</label>
                       <div class="col-sm-8 col-md-6">
-                        <input type="text" class="form-control" value="じょうじ">
+                        <%= f.text_field :firstname, class: "form-control" %>
+                        <!-- # <input type="text"  value="じょうじ"> -->
                       </div>
                     </div>
                   </div>
@@ -92,11 +77,12 @@
                     <div class="form-group gap-20">
                       <label class="col-sm-4 col-md-4 control-label">メールアドレス:</label>
                       <div class="col-sm-8 col-md-6">
-                        <input type="email" class="form-control" value="jeorge_sekiya@hoge.com">
+                        <%= f.email_field :email, class: "form-control", value: "" %>
+                        <!-- <input type="email" > -->
                       </div>
                     </div>
                   </div>
-                  <div class="form-horizontal">
+<!--                   <div class="form-horizontal">
                     <div class="form-group gap-20">
                       <label class="col-sm-4 col-md-4 control-label">現在のパスワード:</label>
                       <div class="col-sm-8 col-md-6">
@@ -111,14 +97,15 @@
                         <input type="password" class="form-control" value="">
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="text-center">
                   <button class="btn btn-primary btn-sm btn-inverse">登録情報の編集</button>
                 </div>
               </div>
             </div>
-          </div>
+          <!-- </div> -->
+          <% end %>
 
 
           <div class="col-sm-4 col-md-4 mt-50-xs">
@@ -247,5 +234,3 @@
   <script type="text/javascript" src="js/jquery.raty.js"></script> 
   <script type="text/javascript" src="js/customs.js"></script>
 
-</body>
-</html>

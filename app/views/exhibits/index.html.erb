@@ -49,7 +49,7 @@
                           <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
-                          <li><a href="#">マイページ</a></li>
+                          <li><%= link_to "マイページ", user_path(current_user) %></li>
                           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                         </ul>
                       </li>
@@ -126,198 +126,10 @@
           </div>
           <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
             <div class="GridLex-grid-noGutter-equalHeight">
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book1.png" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>デザイン</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>ランディングページメソッド・デザインメソッド</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book2.png" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>JAVA</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>すっきりわかるJAVA入門</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="3.5"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book3.jpeg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>PHP</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>LeaningPHP5</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book4.png" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>Ruby on Rails</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>パーフェクトRuby on Rails</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="5.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book5.jpg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>その他</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>テキストエディタAtom入門</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book6.jpeg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>Ruby on Rails</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>エンタープライズRails</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.5"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book7.jpg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>JavaScript</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>ノンプログラマのためのJavaScript</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="5.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <div class="GridLex-col-3_sm-4_xs-12 mb-30">
-                <div class="package-grid-item">
-                  <a href="detail-page.html">
-                    <div class="image">
-                      <img src="assets/books/book8.jpg" alt="Tour Package" />
-                      <div class="absolute-in-image">
-                        <div class="duration"><span>デザイン</span></div>
-                      </div>
-                    </div>
-                    <div class="content clearfix">
-                      <h5>デザインの教室</h5>
-                      <div class="rating-wrapper">
-                        <div class="raty-wrapper">
-                          <div class="star-rating-read-only" data-rating-score="4.0"></div> <span> / 7 review</span>
-                        </div>
-                      </div>
-                      <div class="absolute-in-content">
-                        <span class="btn"><i class="fa fa-heart-o"></i></span>
-                        <div class="price">$1422</div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+              <%= 8.times do %>
+              <%= render partial:'exhibit', collection: @exhibits %>
+              <% end %>
+
             </div>
           </div>
         </div>
@@ -497,4 +309,4 @@
   <script type="text/javascript" src="assets/jquery.raty.js"></script> 
   <script type="text/javascript" src="assets/customs.js"></script>
 </body>
-</html>
+
