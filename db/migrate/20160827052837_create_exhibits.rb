@@ -7,8 +7,8 @@ class CreateExhibits < ActiveRecord::Migration
       t.string :sub_title
       t.integer :price
       t.integer :state
-      t.integer :user_id
-      t.integer :category_id
+      t.references :user, index: true
+      # t.references :category, index: true
 
     end
   end

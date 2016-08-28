@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827082726) do
+ActiveRecord::Schema.define(version: 20160827105527) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "postalcode", limit: 4
+    t.text     "place",      limit: 65535
+    t.integer  "callnumber", limit: 4
+    t.integer  "user_id",    limit: 4
+  end
+
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "buyings", force: :cascade do |t|
     t.datetime "created_at"
@@ -20,27 +31,20 @@ ActiveRecord::Schema.define(version: 20160827082726) do
     t.integer  "user_id",    limit: 4
   end
 
+  add_index "buyings", ["exhibit_id"], name: "index_buyings_on_exhibit_id", using: :btree
+  add_index "buyings", ["user_id"], name: "index_buyings_on_user_id", using: :btree
+
   create_table "exhibits", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title",       limit: 255
-    t.string   "sub_title",   limit: 255
-    t.integer  "price",       limit: 4
-    t.integer  "state",       limit: 4
-    t.integer  "user_id",     limit: 4
-    t.integer  "category_id", limit: 4
+    t.string   "title",      limit: 255
+    t.string   "sub_title",  limit: 255
+    t.integer  "price",      limit: 4
+    t.integer  "state",      limit: 4
+    t.integer  "user_id",    limit: 4
   end
 
-  create_table "exibits", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title",       limit: 255
-    t.string   "sub_title",   limit: 255
-    t.integer  "price",       limit: 4
-    t.integer  "state",       limit: 4
-    t.integer  "user_id",     limit: 4
-    t.integer  "category_id", limit: 4
-  end
+  add_index "exhibits", ["user_id"], name: "index_exhibits_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -54,15 +58,11 @@ ActiveRecord::Schema.define(version: 20160827082726) do
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "username",               limit: 255
+    t.string   "lastname",               limit: 255
+    t.string   "firstname",              limit: 255
     t.text     "pro_img",                limit: 65535
     t.text     "image_cache",            limit: 65535
     t.text     "introduction",           limit: 65535
-    t.integer  "callnumber",             limit: 4
-    t.integer  "postal_code",            limit: 4
-    t.string   "confirmation_token",     limit: 255
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email",      limit: 255
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
   end

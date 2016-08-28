@@ -3,8 +3,8 @@ class CreateBuyings < ActiveRecord::Migration
     create_table :buyings do |t|
 
       t.timestamps
-      t.integer :exhibit_id
-      t.integer :user_id
+      t.references :exhibit, index: true
+      t.references :user, index: true
     end
   end
 end
