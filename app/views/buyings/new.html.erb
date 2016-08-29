@@ -85,8 +85,8 @@
               <h3>ランディングページ・デザインメソッド<small>を購入します。</small></h3>
             </div>
             <div class="payment-container">
-              <form>
-                <div class="payment-box">
+              <%= form_for(@user, html: { class: "payment-box"} )do |f| %>
+                <div >
                   <div class="payment-header clearfix">
                     <div class="number">
                       !
@@ -102,7 +102,7 @@
                         <div class="form-group gap-20">
                           <label class="col-sm-4 col-md-4 control-label"><spna class="necessary-info">*</spna>姓:</label>
                           <div class="col-sm-6 col-md-6">
-                            <input type="text" class="form-control" value="せきや">
+                            <%= f.text_field :lastname, class: "form-control" %>
                           </div>
                         </div>
                       </div>
@@ -110,7 +110,7 @@
                         <div class="form-group gap-20">
                           <label class="col-sm-4 col-md-4 control-label"><spna class="necessary-info">*</spna>名:</label>
                           <div class="col-sm-6 col-md-6">
-                            <input type="text" class="form-control" value="じょうじ">
+                            <%= f.text_field :firstname, class: "form-control" %>
                           </div>
                         </div>
                       </div>
@@ -118,7 +118,7 @@
                         <div class="form-group gap-20">
                           <label class="col-sm-4 col-md-4 control-label"><spna class="necessary-info">*</spna>メールアドレス:</label>
                           <div class="col-sm-6 col-md-6">
-                            <input type="email" class="form-control" value="george-sekiya@hoge.com">
+                            <%= f.email_field :email, class: "form-control" %>
                           </div>
                         </div>
                       </div>
@@ -126,7 +126,7 @@
                         <div class="form-group gap-20">
                           <label class="col-sm-4 col-md-4 control-label">電話番号:</label>
                           <div class="col-sm-6 col-md-6">
-                            <input type="email" class="form-control" value="">
+                            <%= f.number_field :callnumber, class: "form-control" %>
                           </div>
                         </div>
                       </div>
@@ -134,7 +134,7 @@
                         <div class="form-group gap-20">
                           <label class="col-sm-4 col-md-4 control-label"><spna class="necessary-info">*</spna>郵便番号:</label>
                           <div class="col-sm-6 col-md-6">
-                            <input type="email" class="form-control" value="150-0000">
+                            <%= f.number_field :postalcode, class: "form-control" %>
                           </div>
                         </div>
                       </div>
@@ -142,14 +142,14 @@
                         <div class="form-group gap-20">
                           <label class="col-sm-4 col-md-4 control-label"><spna class="necessary-info">*</spna>住所:</label>
                           <div class="col-sm-6 col-md-6">
-                            <input type="email" class="form-control" value="東京都渋谷区道玄坂２丁目新大宗ビル３号館８階">
+                            <%= f.text_field :place, class: "form-control" %>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </form>
+              <% end %>
             </div>
             <div class="checkbox-block">
               <input id="accept_booking" name="accept_booking" type="checkbox" class="checkbox" value="paymentsCreditCard"/>
