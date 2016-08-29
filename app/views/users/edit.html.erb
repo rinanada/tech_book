@@ -18,14 +18,14 @@
   <div class="content-wrapper">
     <div class="container">
       <div class="row">
-        <%= form_for(@user, html: {class:"col-sm-8 col-md-8"}) do |f| %>
+        <%= form_for(current_user, html: {class:"col-sm-8 col-md-8"}) do |f| %>
         <!-- <div class="col-sm-8 col-md-8"> -->
           <div class="payment-box">
             <div class="payment-header clearfix">
               <h5 class="heading mt-0">購入者情報</h5>
             </div>
             <div class="payment-content">
-              <div class="payment-traveller mb-0">
+              <d6iv class="payment-traveller mb-0">
                 <div class="form-horizontal">
                   <div class="form-group gap-20">
                     <label class="col-sm-4 col-md-4 control-label">姓</label>
@@ -44,12 +44,11 @@
                     </div>
                   </div>
                 </div>
-                <%= f.fields_for :addresses do |ad| %>
                 <div class="form-horizontal">
                   <div class="form-group gap-20">
                     <label class="col-sm-4 col-md-4 control-label">郵便番号:</label>
                     <div class="col-sm-8 col-md-6">
-                      <%= ad.number_field :postalcode, class: "form-control", value: "" %>
+                      <%= f.number_field :postalcode, class: "form-control" %>
                     </div>
                   </div>
                 </div>
@@ -57,11 +56,10 @@
                   <div class="form-group gap-20">
                     <label class="col-sm-4 col-md-4 control-label">住所:</label>
                     <div class="col-sm-8 col-md-6">
-                      <%= ad.text_field :place, class: "form-control", value: ""%>
+                      <%= f.text_field :place, class: "form-control" %>
                     </div>
                   </div>
                 </div>
-              <% end %>
               </div>
               <div class="text-center">
                 <%= f.button "購入者情報の編集", class: "btn btn-primary btn-sm btn-inverse"  %>
@@ -79,7 +77,8 @@
                   <div class="form-group gap-20">
                     <label class="col-sm-4 col-md-4 control-label">メールアドレス:</label>
                     <div class="col-sm-8 col-md-6">
-                      <%= f.email_field :email, class: "form-control", value: "" %>
+                    <%= f.email_field :email, class: "form-control"%>
+
                       <!-- <input type="email" > -->
                     </div>
                   </div>
