@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :sessions => 'users/sessions'
 }
   resources :exhibits, only: [:show]
-  resources :users, only: [:show, :update]
+  resources :users, only: [:edit, :update]
   resources :buyings, only: [:show, :new]
-  resources :profiles, only: [:edit]
+  resources :profiles, only: [:show]
 
 end
