@@ -5,6 +5,7 @@ class CreateBuyings < ActiveRecord::Migration
       t.timestamps
       t.references :exhibit, index: true
       t.references :user, index: true
+      t.references :profile, index: true
     end
   end
 end

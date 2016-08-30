@@ -8,6 +8,7 @@ class CreateExhibits < ActiveRecord::Migration
       t.integer :price
       t.integer :state
       t.references :user, index: true
+      t.references :profile, index: true
       # t.references :category, index: true
 
     end
