@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 }
   resources :exhibits, only: [:show]
   resources :users, only: [:edit, :update]
-  resources :buyings, only: [:show, :new, :update]
+  resources :buyings, only: [:show, :new, :update, :create]
   resources :profiles, only: [:show]
 
 end

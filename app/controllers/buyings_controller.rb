@@ -1,21 +1,31 @@
 class BuyingsController < ApplicationController
-  before_action :authenticate_user!, only: [:new ,:update]
+  before_action :authenticate_user!, only: [:new ,:update, :show]
 
   def new
+    # binding.pry
     @user = User.find(current_user)
-    # @exhibit = Exhibit.find(params[:id])
-
+    # @address = Address.find(current_user)
   end
 
-  def update
-    @user = User.find(current_user)
-    @user.update(user_params)
-    redirect_to :buying_path
-    # remote true
-  end
+  # def create
+  #   @user = Prototype.new(user_params)
+  #   if @user.save
+  #     redirect_to :buying
+  #   else
+  #     redirect_to ({ action: :new })
+  #    end
+  # end
 
-  def create
-  end
+  # def update
+  #   # binding.pry
+  #   @user = User.find(current_user)
+  #   @user.update(user_params)
+  #   redirect_to :new_buying
+  #   # binding.pry
+
+  # end
+
+
 
   def show
   end
