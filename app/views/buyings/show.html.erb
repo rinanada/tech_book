@@ -18,7 +18,6 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body> -->
-<%= form_for %>
   <div class="clear"></div>
   <!-- start Main Wrapper -->
   <div class="main-wrapper">
@@ -65,7 +64,8 @@
                 </ul>
               </div>
               <div class="text-right">
-              <button class="btn btn-primary btn-inverse"> マイページへ</button>
+              <%= link_to "マイページへ", edit_user_path(current_user), class: "btn btn-primary btn-inverse" %>
+              <button > </button>
             </div>
             </div>
           </div>

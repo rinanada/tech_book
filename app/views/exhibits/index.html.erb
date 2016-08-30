@@ -43,16 +43,19 @@
                 <div class="pull-right">
                   <div class="navbar-mini">
                     <ul class="clearfix">
+                      <% if user_signed_in?%>
                       <li class="dropdown bt-dropdown-click hidden-xs">
                         <a id="currncy-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                           <i class="ion-android-settings hidden-xss"></i> メニュー
                           <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
-                          <li><%= link_to "マイページ", user_path(current_user) %></li>
-                          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                          <li><%= link_to "My Page Edit", edit_user_path(current_user) %></li>
+                          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                          <li><%= link_to "Favorite List" %></li>
                         </ul>
                       </li>
+                      <% end %>
                       <li class="user-action">
                        <% if user_signed_in? %>
                         <a data-toggle="modal" href="#loginModal" class="btn"><%=current_user.username %>さん</a>

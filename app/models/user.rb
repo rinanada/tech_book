@@ -4,16 +4,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:username]
          # , :confirmable
-  has_many :exibits
+  has_many :exhibits
   has_many :buyings
   has_many :addresses
-  validates :username, :password, presence: true
+  has_many :profiles
+  validates :username, presence: true
 
   validates_uniqueness_of :username
   validates_presence_of :username
   validates :username, presence: true
-  validates :password, presence: true
-  validates :email, presence: true
+
+
   # validates :username, presence: true
 
     #usernameを利用してログインするようにオーバーライド
