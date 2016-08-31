@@ -6,7 +6,7 @@
       <span>or</span>
     </div>
     <div class="form-group">
-      <%= f.text_field :username, id: "login_username", class: "form-control", placeholder: "ユーザーネーム", type: "text" %>
+      <%= f.email_field :email, id: "login_username", class: "form-control", placeholder: "Emailアドレス" %>
     </div>
     <div class="form-group">
       <%= f.password_field :password, id: "login_password", class: "form-control", placeholder: "パスワード", type: "password" %>
