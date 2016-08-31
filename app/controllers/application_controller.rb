@@ -9,11 +9,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     # sign_inのときに、group_keyも許可する
-      devise_parameter_sanitizer.permit(:sign_in, keys:[:username, :password, :email])
+      devise_parameter_sanitizer.permit(:sign_in, keys:[:password, :email])
     # sign_upのときに、group_keyも許可する
-      devise_parameter_sanitizer.permit(:sign_up, keys:[:username, :email])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:password, :email])
     #account_updateのときに、group_keyも許可する
-    binding.pry
       devise_parameter_sanitizer.permit(:account_update, keys:[:email, :firstname, :lastname])
   end
 
