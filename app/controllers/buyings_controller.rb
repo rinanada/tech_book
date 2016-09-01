@@ -4,6 +4,7 @@ class BuyingsController < ApplicationController
   def new
     # binding.pry
     @user = User.find(current_user)
+    @user_detail = UserDetail.find_by(user_id: @user.id)
     # @address = Address.find(current_user)
   end
 
@@ -30,7 +31,11 @@ class BuyingsController < ApplicationController
   def show
   end
 
+  def user_detail_params
+    params.require(:user_detail).permit(:lastname, :firstname, :postalcode, :place, :email, :callnumber)
+  end
+
   def user_params
-    params.require(:user).permit(:lastname, :firstname, :postalcode, :place, :email, :callnumber)
+    params.require(:user).permit(:email)
   end
 end
