@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_one :user_detail
   has_many :profiles
 
-  accepts_nested_attributes_for :user_details
+  accepts_nested_attributes_for :user_detail
 
 
 end

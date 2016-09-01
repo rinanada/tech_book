@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    # if @user_detail.changed then
+    # if @user_detail.changed
       @user_detail.update(user_detail_params)
       redirect_to :edit_user
     # else
@@ -25,16 +25,18 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(current_user)
     @user_detail = UserDetail.find_by(user_id: @user.id)
-
   end
+
+
+  def user_detail_params
+    params.require(:user_detail).permit(:lastname, :firstname, :postalcode, :callnumber, :place)
+  end
+
 
   def user_params
     params.require(:user).permit(:email)
   end
 
-  def user_detail_params
-    params.require(:user_detail).permit(:lastname, :firstname, :postalcode, :callnumber, :place)
-  end
 end
 
 
