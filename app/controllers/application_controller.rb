@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     # sign_inのときに、group_keyも許可する
       devise_parameter_sanitizer.permit(:sign_in, keys:[:password, :email])
     # sign_upのときに、group_keyも許可する
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:password, :email])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password])
     #account_updateのときに、group_keyも許可する
       devise_parameter_sanitizer.permit(:account_update, keys:[:email, :firstname, :lastname])
   end
