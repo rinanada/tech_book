@@ -1,4 +1,4 @@
 class Buying < ActiveRecord::Base
   belongs_to :user
-  belongs_to :exhibit
+  has_one :exhibit
 end

@@ -20,16 +20,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :last_sign_in_ip
       # User
 
-      t.string :username
-      t.string :lastname
-      t.string :firstname
       t.text :pro_img
       t.text :image_cache
-      t.text :introduction
-      t.integer :callnumber
-      t.integer :postalcode
-      t.text :place
-
 
 
       ## Confirmable
