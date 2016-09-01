@@ -99,7 +99,7 @@
                    <ul class= "payment-traveller">
                     <li>
                     <strong>*氏名:</strong>
-                    <%= @user.lastname%>
+                    <%= @user_detail.lastname%><%= @user_detail.firstname%>
                     </li>
                     <li>
                     <strong>*メールアドレス:</strong>
@@ -107,15 +107,15 @@
                     </li>
                     <li>
                     <strong>電話番号:</strong>
-                    <%= @user.callnumber%>
+                    <%= @user_detail.callnumber%>
                     </li>
                     <li>
                     <strong>*郵便番号:</strong>
-                    <%= @user.postalcode%>
+                    <%= @user_detail.postalcode%>
                     </li>
                     <li>
                     <strong>*住所</strong>
-                    <%= @user.postalcode%>
+                    <%= @user_detail.postalcode%>
                     </li>
                   </ul>
                   <button class= "btn btn-primary btn-sm btn-inverse">登録情報の編集</button>
