@@ -1,19 +1,20 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:update, :destory]
+  # before_action :set_user, only: [:update, :destory]
   before_action :authenticate_user!, only: [:edit, :update]
 
   def edit
-    @user = User.new
-    2.times { @user.user_details.build }
-    # @user_details = UserDetail.new
+    @user = User.find(current_user)
+    @user_details = UserDetail.find_by(user_id: @user.id)
+    unless @user_detail.present?
+      @user_details = UserDetail.new
+      binding.pry
+    end
   end
 
 
   def create
-    @user = User.new(user_params)
-      # @user = User.find(current_user)
+    @user = User.new(user_details_params)
       if @user.save
-      binding.pry
       redirect_to :edit_user, notice: 'New profile was successfully created'
       else
       redirect_to :edit_user, alert: 'New prototype was unsuccessfully created'
@@ -24,7 +25,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    @user_details = UserDetail.find_by(user_id: @user.id)
+    if @user_details.create(user_details_params)
       redirect_to :edit_user, notice: 'Your profile was successfully updated'
     else
       flash.now[:alert] = 'Your profile was unsuccessfully updated'
@@ -33,16 +35,11 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
-      @user = User.find(params[:id])
-      # @user_detail = UserDetail.find_by(user_id: @user.id)
+
+  def user_details_params
+    params.require(:user).permit(:id, user_details_attributes: [:lastname, :firstname, :postalcode, :callnumber, :place])
+    binding.pry
   end
-
-
-  def user_params
-    params.require(:user).permit(:id, :email, user_details_attributes: [:lastname, :firstname, :postalcode, :callnumber, :place])
-  end
-
 
 end
 

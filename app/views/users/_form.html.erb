@@ -1,5 +1,5 @@
 <%= form_for @user do |f| %>
-<%= f.fields_for :user_details, class: "payment-content" do |details_form| %>
+<%= f.fields_for @user_details, class: "payment-content" do |details_form| %>
   <div class="payment-traveller mb-0">
     <div class="form-horizontal">
       <div class="form-group gap-20">
@@ -50,5 +50,6 @@
   <div class="text-center">
     <%= details_form.button "購入者情報の編集", class: "btn btn-primary btn-sm btn-inverse" %>
   </div>
+
 <% end %>
 <% end %>
