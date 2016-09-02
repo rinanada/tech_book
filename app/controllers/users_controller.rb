@@ -12,21 +12,22 @@ class UsersController < ApplicationController
   end
 
 
-  def create
-    @user = User.new(user_details_params)
-      if @user.save
-      redirect_to :edit_user, notice: 'New profile was successfully created'
-      else
-      redirect_to :edit_user, alert: 'New prototype was unsuccessfully created'
-      end
-  end
+  # def create
+  #   @user = User.new(user_details_params)
+  #     if @user.save
+  #     redirect_to :edit_user, notice: 'New profile was successfully created'
+  #     else
+  #     redirect_to :edit_user, alert: 'New prototype was unsuccessfully created'
+  #     end
+  # end
 
   def destroy
   end
 
   def update
-    @user_details = UserDetail.find_by(user_id: @user.id)
-    if @user_details.create(user_details_params)
+
+    @user = User.find(params[:id])
+    if @user.update(user_details_params)
       redirect_to :edit_user, notice: 'Your profile was successfully updated'
     else
       flash.now[:alert] = 'Your profile was unsuccessfully updated'
