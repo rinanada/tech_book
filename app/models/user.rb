@@ -6,10 +6,10 @@ class User < ActiveRecord::Base
          # , :confirmable
   has_many :exhibits
   has_many :buyings
-  has_one :user_detail
+  has_many :user_details
   has_many :profiles
 
-  accepts_nested_attributes_for :user_detail
+  accepts_nested_attributes_for :user_details, allow_destroy: true
 
 
 end

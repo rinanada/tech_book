@@ -1,40 +1,35 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  # before_action :set_user, only: [:update, :destory]
   before_action :authenticate_user!, only: [:edit, :update]
 
+  def new
+    @user_detail = UserDetail.new
+  end
+
   def edit
+    @user_detail = UserDetail.find_by(user_id: current_user.id)
+    @user_details = UserDetail.where(user_id: current_user.id)
   end
 
-  def index
-  end
 
-  def show
+  def destroy
   end
 
   def update
-    # if @user_detail.changed
-      @user_detail.update(user_detail_params)
-      redirect_to :edit_user
-    # else
-    #   @user.update(user_params)
-    # remote ture
+    @user_detail = UserDetail.find_by(user_id: current_user.id)
+    if @user.update(user_details_params)
+      redirect_to :edit_user, notice: 'Your profile was successfully updated'
+    else
+      flash.now[:alert] = 'Your profile was unsuccessfully updated'
+    end
   end
 
   private
 
-  def set_user
-    @user = User.find(current_user)
-    @user_detail = UserDetail.find_by(user_id: @user.id)
-  end
 
-
-  def user_detail_params
+  def user_details_params
     params.require(:user_detail).permit(:lastname, :firstname, :postalcode, :callnumber, :place)
-  end
-
-
-  def user_params
-    params.require(:user).permit(:email)
+    binding.pry
   end
 
 end

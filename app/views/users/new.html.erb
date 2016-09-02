@@ -18,28 +18,38 @@
     <div class="content-wrapper">
       <div class="container">
         <div class="row">
-          <div class= "col-sm-8 col-md-8" %>
+          <div class="col-sm-8 col-md-8">
+
             <div class="payment-box">
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">購入者情報</h5>
               </div>
-              <%= render partial:'detail',collection: @user_details %>
+              <div class="payment-content">
+
+              <%= render partial:'form', collection: @user_details %>
+              <% binding.pry %>
+
+                <div class="text-center">
+                  <button class="btn btn-primary btn-sm btn-inverse">購入者情報の編集</button>
+                </div>
+              </div>
             </div>
+
             <div class="payment-box">
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">登録情報</h5>
               </div>
-              <div class="payment-content" %>
+              <div class="payment-content">
                 <div class="payment-traveller mb-0">
                   <div class="form-horizontal">
                     <div class="form-group gap-20">
-                      <label class="col-sm-4 col-md-4 control-label">メールアドレス:<%= current_user.email %></label>
+                      <label class="col-sm-4 col-md-4 control-label">メールアドレス:</label>
                       <div class="col-sm-8 col-md-6">
-                        <!-- <input type="email" class="form-control" value=""> -->
+                        <input type="email" class="form-control" value="jeorge_sekiya@hoge.com">
                       </div>
                     </div>
                   </div>
-<!--                   <div class="form-horizontal">
+                  <div class="form-horizontal">
                     <div class="form-group gap-20">
                       <label class="col-sm-4 col-md-4 control-label">現在のパスワード:</label>
                       <div class="col-sm-8 col-md-6">
@@ -54,15 +64,15 @@
                         <input type="password" class="form-control" value="">
                       </div>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
-                <!-- <button></button> -->
+                <div class="text-center">
+                  <button class="btn btn-primary btn-sm btn-inverse">登録情報の編集</button>
                 </div>
-
+              </div>
             </div>
           </div>
 
-<!-- passwordはメールで再通知、メアド忘れた人は知りません。 -->
 
           <div class="col-sm-4 col-md-4 mt-50-xs">
             <aside class="sidebar">
