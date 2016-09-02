@@ -18,70 +18,24 @@
     <div class="content-wrapper">
       <div class="container">
         <div class="row">
-          <div class="col-sm-8 col-md-8">
+          <div class= "col-sm-8 col-md-8" %>
             <div class="payment-box">
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">購入者情報</h5>
               </div>
-              <%= form_for @user_detail, :url => {:controller => :users, :action => :update }, html: { class:"payment-content" } do |f| %>
-                <div class="payment-traveller mb-0">
-                  <div class="form-horizontal">
-                    <div class="form-group gap-20">
-                      <label class="col-sm-4 col-md-4 control-label">姓</label>
-                      <div class="col-sm-8 col-md-6">
-                        <%= f.text_field :lastname, class:"form-control"  %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-horizontal">
-                    <div class="form-group gap-20">
-                      <label class="col-sm-4 col-md-4 control-label">名</label>
-                      <div class="col-sm-8 col-md-6">
-                        <%= f.text_field :firstname, class: "form-control" %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-horizontal">
-                    <div class="form-group gap-20">
-                      <label class="col-sm-4 col-md-4 control-label">郵便番号:</label>
-                      <div class="col-sm-8 col-md-6">
-                        <%= f.number_field :postalcode, class: "form-control" %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-horizontal">
-                    <div class="form-group gap-20">
-                      <label class="col-sm-4 col-md-4 control-label">電話番号:</label>
-                      <div class="col-sm-8 col-md-6">
-                        <%= f.number_field :callnumber, class: "form-control" %>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-horizontal">
-                    <div class="form-group gap-20">
-                      <label class="col-sm-4 col-md-4 control-label">住所:</label>
-                      <div class="col-sm-8 col-md-6">
-                        <%= f.text_field :place, class: "form-control" %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-center">
-                  <%= f.button "購入者情報の編集", class: "btn btn-primary btn-sm btn-inverse" %>
-                </div>
-              <% end %>
+              <%= render partial:'form' %>
             </div>
             <div class="payment-box">
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">登録情報</h5>
               </div>
-              <%= form_for @user, class: "payment-content" do |f| %>
+              <div class="payment-content" %>
                 <div class="payment-traveller mb-0">
                   <div class="form-horizontal">
                     <div class="form-group gap-20">
-                      <label class="col-sm-4 col-md-4 control-label">メールアドレス:</label>
+                      <label class="col-sm-4 col-md-4 control-label">メールアドレス:<%= current_user.email %></label>
                       <div class="col-sm-8 col-md-6">
-                        <%= f.email_field :email, class: "form-control" %>
+                        <!-- <input type="email" class="form-control" value=""> -->
                       </div>
                     </div>
                   </div>
@@ -102,10 +56,9 @@
                     </div>
                   </div> -->
                 </div>
-                <!-- <div class="text-center"> -->
-                  <!-- <%= f.button "登録情報の編集", class: "btn btn-primary btn-sm btn-inverse" %> -->
-                <!-- </div> -->
-              <% end %>
+                <!-- <button></button> -->
+                </div>
+
             </div>
           </div>
 
