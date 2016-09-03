@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  root "exhibits#index"
+  root "books#index"
   devise_for :users, :controllers => { sessions: 'users/sessions' }
-  resources :exhibits, only: [:show]
-  resources :users, only: [:new, :edit, :update, :create]
-  resources :buyings, only: [:show, :new, :update, :create]
+  resources :user_details, only: [:new, :edit, :update]
   resources :profiles, only: [:show]
+
+  resources :books, only: [:show]
+  resources :buyings, only: [:new, :show]
+  resources :sellings, only: [:new, :show]
 
 end

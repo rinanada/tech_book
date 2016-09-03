@@ -1,9 +1,9 @@
 class CreateBuyings < ActiveRecord::Migration
   def change
     create_table :buyings do |t|
-
       t.timestamps
-      t.references :user, index: true
+      t.integer :pay_method
+      t.references :order
     end
   end
 end

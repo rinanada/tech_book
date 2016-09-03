@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903041026) do
+ActiveRecord::Schema.define(version: 20160903083620) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -28,43 +28,46 @@ ActiveRecord::Schema.define(version: 20160903041026) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
-  create_table "buyings", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id",    limit: 4
-    t.integer  "profile_id", limit: 4
-  end
-
-  add_index "buyings", ["profile_id"], name: "index_buyings_on_profile_id", using: :btree
-  add_index "buyings", ["user_id"], name: "index_buyings_on_user_id", using: :btree
-
-  create_table "categories", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "langage",    limit: 4
-    t.integer  "design",     limit: 4
-    t.integer  "other",      limit: 4
-  end
-
-  create_table "exhibits", force: :cascade do |t|
+  create_table "books", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",     limit: 4
-    t.integer  "buying_id",   limit: 4
-    t.integer  "category_id", limit: 4
     t.integer  "profiles_id", limit: 4
     t.string   "title",       limit: 255
     t.string   "sub_title",   limit: 255
     t.integer  "price",       limit: 4
     t.integer  "state",       limit: 4
     t.text     "discription", limit: 65535
+    t.integer  "likes_count", limit: 4
     t.text     "content",     limit: 65535
   end
 
-  add_index "exhibits", ["buying_id"], name: "index_exhibits_on_buying_id", using: :btree
-  add_index "exhibits", ["category_id"], name: "index_exhibits_on_category_id", using: :btree
-  add_index "exhibits", ["profiles_id"], name: "index_exhibits_on_profiles_id", using: :btree
-  add_index "exhibits", ["user_id"], name: "index_exhibits_on_user_id", using: :btree
+  add_index "books", ["profiles_id"], name: "index_books_on_profiles_id", using: :btree
+  add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
+
+  create_table "buyings", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "pay_method", limit: 4
+    t.integer  "order_id",   limit: 4
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "book_id",    limit: 4
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",    limit: 4
+    t.integer  "book_id",    limit: 4
+    t.integer  "position",   limit: 4
+  end
+
+  add_index "orders", ["book_id"], name: "index_orders_on_book_id", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at"
@@ -73,6 +76,12 @@ ActiveRecord::Schema.define(version: 20160903041026) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "sellings", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "order_id",   limit: 4
+  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
@@ -126,11 +135,13 @@ ActiveRecord::Schema.define(version: 20160903041026) do
     t.string   "unconfirmed_email",      limit: 255
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.integer  "book_id",                limit: 4
   end
 
+  add_index "users", ["book_id"], name: "index_users_on_book_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "buyings", "profiles"
   add_foreign_key "user_details", "users"
+  add_foreign_key "users", "books"
 end

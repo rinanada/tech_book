@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :buyings
   has_many :user_details
   has_many :profiles
+  has_many :orders
+  has_many :books, through: :orders
 
   accepts_nested_attributes_for :user_details, allow_destroy: true
 

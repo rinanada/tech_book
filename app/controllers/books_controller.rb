@@ -1,4 +1,4 @@
-class ExhibitsController < ApplicationController
+class BooksController < ApplicationController
   def index
     if user_signed_in?
       @user = User.find(current_user)
@@ -9,14 +9,14 @@ class ExhibitsController < ApplicationController
     else
       @mastname  = 'ログイン/新規登録'
     end
-    @exhibits = Exhibit.includes(:user)
+    @books = Book.includes(:user)
+    binding.pry
   end
 
 
 
   def show
-    @exhibit = Exhibit.find(params[:id])
+    @book = Book.find(params[:id])
   end
 
 end
-
