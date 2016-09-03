@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903083620) do
+ActiveRecord::Schema.define(version: 20160903132236) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -40,17 +40,12 @@ ActiveRecord::Schema.define(version: 20160903083620) do
     t.text     "discription", limit: 65535
     t.integer  "likes_count", limit: 4
     t.text     "content",     limit: 65535
+    t.string   "sold?",       limit: 255
+    t.integer  "liks_count",  limit: 4
   end
 
   add_index "books", ["profiles_id"], name: "index_books_on_profiles_id", using: :btree
   add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
-
-  create_table "buyings", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "pay_method", limit: 4
-    t.integer  "order_id",   limit: 4
-  end
 
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at"
@@ -76,12 +71,6 @@ ActiveRecord::Schema.define(version: 20160903083620) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
-
-  create_table "sellings", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "order_id",   limit: 4
-  end
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id",        limit: 4
@@ -135,13 +124,10 @@ ActiveRecord::Schema.define(version: 20160903083620) do
     t.string   "unconfirmed_email",      limit: 255
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.integer  "book_id",                limit: 4
   end
 
-  add_index "users", ["book_id"], name: "index_users_on_book_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "user_details", "users"
-  add_foreign_key "users", "books"
 end

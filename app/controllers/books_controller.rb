@@ -8,9 +8,9 @@ class BooksController < ApplicationController
       @mastname += 'さん'
     else
       @mastname  = 'ログイン/新規登録'
+      binding.pry
     end
-    @books = Book.includes(:user)
-    binding.pry
+    @books = Book.find(1)
   end
 
 
