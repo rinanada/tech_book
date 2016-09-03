@@ -50,6 +50,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (6.0.3)
@@ -132,6 +134,7 @@ GEM
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
+    railroady (1.5.1)
     rails (4.2.6)
       actionmailer (= 4.2.6)
       actionpack (= 4.2.6)
@@ -214,6 +217,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  acts-as-taggable-on (~> 3.4)
   byebug
   coffee-rails (~> 4.1.0)
   devise
@@ -221,6 +225,7 @@ DEPENDENCIES
   jquery-rails
   mysql2 (= 0.3.18)
   pry
+  railroady
   rails (= 4.2.6)
   rails_12factor
   sass-rails (~> 5.0)
