@@ -23,9 +23,50 @@
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">購入者情報</h5>
               </div>
-              <%= render partial:'detail',collection: @user_details %>
-            </div>
+              <%= form_for @user_detail, url: { action: :update } , class:"payment-traveller mb-0" do |f| %>
+                <div class="form-horizontal">
+                  <div class="form-group gap-20">
+                    <label class="col-sm-4 col-md-4 control-label">姓</label>
+                    <div class="col-sm-8 col-md-6">
+                      <%= f.text_field :lastname, class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-horizontal">
+                  <div class="form-group gap-20">
+                    <label class="col-sm-4 col-md-4 control-label">名</label>
+                    <div class="col-sm-8 col-md-6">
+                      <%= f.text_field :firstname, class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-horizontal">
+                  <div class="form-group gap-20">
+                    <label class="col-sm-4 col-md-4 control-label">郵便番号:</label>
+                    <div class="col-sm-8 col-md-6">
+                      <%= f.number_field :postalcode, class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-horizontal">
+                  <div class="form-group gap-20">
+                    <label class="col-sm-4 col-md-4 control-label">電話番号:</label>
+                    <div class="col-sm-8 col-md-6">
+                      <%= f.number_field :callnumber, class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-horizontal">
+                  <div class="form-group gap-20">
+                    <label class="col-sm-4 col-md-4 control-label">住所:</label>
+                    <div class="col-sm-8 col-md-6">
+                      <%= f.text_field :place, class: "form-control" %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             <%= button_to "購入者情報の編集", { action: :new }, class: "btn btn-primary btn-sm btn-inverse" %>
+            </div>
             <div class="payment-box">
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">登録情報</h5>
