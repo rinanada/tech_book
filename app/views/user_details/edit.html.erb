@@ -25,6 +25,7 @@
               </div>
               <%= render partial:'detail',collection: @user_details %>
             </div>
+            <%= button_to "購入者情報の編集", { action: :new }, class: "btn btn-primary btn-sm btn-inverse" %>
             <div class="payment-box">
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">登録情報</h5>
