@@ -1,3 +1,4 @@
 class Order < ActiveRecord::Base
-  belongs_to :book
+  has_one :books
+  belongs_to :user
 end

@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
   resources :books, only: [:show]
   resources :buyings, only: [:new, :show]
-  resources :sellings, only: [:new, :show]
+  resources :sellings, only: [:new, :show, :create]
 
 end

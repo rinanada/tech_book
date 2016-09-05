@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-            <h1 class="hero-title">書籍一覧</h1>
+            <h1 class="hero-title">新規出品</h1>
           </div>
         </div>
       </div>
@@ -25,26 +25,36 @@
         <div class="row">
           <div class="col-sm-4 col-md-3">
             <aside class="sidebar with-filter">
-              <div class="sidebar-search-wrapper bg-light-2">
+              <%= form_for @book, url: { action: :create }, class: "sidebar-search-wrapper bg-light-2" do |f| %>
                 <div class="sidebar-search-header">
-                  <h4>再検索</h4>
+                  <h4>出品内容</h4>
                 </div>
                 <div class="sidebar-search-content">
                   <div class="form-group">
-                    <input name="month" class="form-control" placeholder="キーワード">
+                    <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
                   </div>
                   <div class="form-group">
-                    <input name="month" class="form-control" placeholder="キーワード">
+                    <%= f.text_field :sub_title, class: "form-control", placeholder: "サブタイトル" %>
                   </div>
                   <div class="form-group">
-                    <input name="month" class="form-control" placeholder="キーワード">
+                    <%= f.number_field :price, class: "form-control", placeholder: "希望販売価格" %>
                   </div>
                   <div class="form-group">
-                    <input name="month" class="form-control" placeholder="キーワード">
+                    <input name="month" class="form-control" placeholder="カテゴリ">
                   </div>
-                  <a href="#" class="btn btn-primary btn-block">検索</a>
+                  <!-- tag -->
+                  <div class="form-group">
+                    <%= f.text_field :state, class: "form-control", placeholder: "状態" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.text_field :discription, class: "form-control", placeholder: "本の紹介文" %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.text_field :content, class: "form-control", placeholder: "画像アップロード" %>
+                  </div>z
+                  <%= f.submit "出品する", class: "btn btn-primary btn-block" %>
                 </div>
-              </div>
+              <% end %>
             </aside>
           </div>
       </div>
