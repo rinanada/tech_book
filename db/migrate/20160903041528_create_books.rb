@@ -11,7 +11,7 @@ class CreateBooks < ActiveRecord::Migration
       t.integer :state
       t.text :discription
       t.integer :likes_count
-      t.text :content
+      t.string :content
       t.string :sold?
     end
   end

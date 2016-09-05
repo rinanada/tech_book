@@ -8,9 +8,8 @@ class BooksController < ApplicationController
       @mastname += 'さん'
     else
       @mastname  = 'ログイン/新規登録'
-      binding.pry
     end
-    @books = Book.find(1)
+    @books = Book.includes(:user).page(params[:page])
   end
 
 

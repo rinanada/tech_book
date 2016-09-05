@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160903132236) do
+ActiveRecord::Schema.define(version: 20160905072047) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20160903132236) do
     t.integer  "state",       limit: 4
     t.text     "discription", limit: 65535
     t.integer  "likes_count", limit: 4
-    t.text     "content",     limit: 65535
+    t.string   "content",     limit: 255
     t.string   "sold?",       limit: 255
     t.integer  "liks_count",  limit: 4
   end
@@ -57,11 +57,9 @@ ActiveRecord::Schema.define(version: 20160903132236) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",    limit: 4
-    t.integer  "book_id",    limit: 4
     t.integer  "position",   limit: 4
   end
 
-  add_index "orders", ["book_id"], name: "index_orders_on_book_id", using: :btree
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "profiles", force: :cascade do |t|
@@ -116,7 +114,7 @@ ActiveRecord::Schema.define(version: 20160903132236) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.text     "pro_img",                limit: 65535
+    t.string   "pro_img",                limit: 255
     t.text     "image_cache",            limit: 65535
     t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"

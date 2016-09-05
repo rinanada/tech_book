@@ -128,10 +128,7 @@
           </div>
           <div class="GridLex-gap-30-wrappper package-grid-item-wrapper">
             <div class="GridLex-grid-noGutter-equalHeight">
-              <%= 8.times do %>
-              <%= render @books %>
-              <% end %>
-
+              <%= render partial: 'books/book', collection: @books %>
             </div>
           </div>
         </div>

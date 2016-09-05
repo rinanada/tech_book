@@ -50,8 +50,8 @@
                     <%= f.text_field :discription, class: "form-control", placeholder: "本の紹介文" %>
                   </div>
                   <div class="form-group">
-                    <%= f.text_field :content, class: "form-control", placeholder: "画像アップロード" %>
-                  </div>z
+                    <%= f.file_field :content, class: "form-control", placeholder: "画像アップロード" %>
+                  </div>
                   <%= f.submit "出品する", class: "btn btn-primary btn-block" %>
                 </div>
               <% end %>

@@ -6,7 +6,6 @@ class SellingsController < ApplicationController
   def create
     @user = User.find(current_user)
     @book = @user.books.build(book_params)
-    binding.pry
     if @book.save
       binding.pry
       redirect_to root_path, notice: 'new book has been exhibited successfully'
@@ -26,5 +25,3 @@ class SellingsController < ApplicationController
   end
 end
 
-
-# orders...user_id=current_user.id, book_id = (assosiation)

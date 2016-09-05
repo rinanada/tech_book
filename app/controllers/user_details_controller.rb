@@ -31,4 +31,8 @@ class UserDetailsController < ApplicationController
     binding.pry
   end
 
+  def user_params
+    params.require(:user).permit(:pro_img)
+  end
+
 end
