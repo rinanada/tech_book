@@ -7,6 +7,7 @@ class SellingsController < ApplicationController
     @user = User.find(current_user)
     @book = @user.books.build(book_params)
     if @book.save
+      @book.update(sold?: "n")
       redirect_to root_path, notice: 'new book has been exhibited successfully'
     else
       redirect_to new_selling_path, alert: 'error'

@@ -4,20 +4,23 @@ class OrdersController < ApplicationController
   def new
     @user = User.find(current_user)
     @user_detail = UserDetail.find_by(user_id: @user.id)
-    @order = @user.orders.build
     @book = Book.find_by(user_id: @user.id)
     @book_price = (@book.price + 200) * 1.08.floor
     @tax = (@book.price + 200) * 0.08.floor
-    binding.pry
   end
 
   def create
-    @order = Order.new
   end
 
 
 
   def show
+    @user = User.find(current_user)
+    @order = @user.orders.build
+    @order.save
+    @book = Book.find_by(user_id: @user.id)
+    @book.update(sold?: "y")
+
   end
 
   def user_detail_params

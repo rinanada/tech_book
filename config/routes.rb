@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show]
 
   resources :books, only: [:show]
-  resources :orders, only: [:new, :show]
+  resources :orders, only: [:new, :show, :create]
   resources :sellings, only: [:new, :show, :create]
 
 end
