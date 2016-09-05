@@ -6,12 +6,12 @@
       <div class="container">
         <div class="flex-row">
           <div class="flex-column flex-md-8 flex-sm-12">
-            <h1 class="hero-title">ランディングページ・デザインメソッド</h1>
-            <p class="line18">WEB制作のプロが教えるLPの考え方、設計、コーディング、コンテンツ制作ガイド</p>
+            <h1 class="hero-title"><%= @book.title %></h1>
+            <p class="line18"><%= @book.sub_title %></p>
           </div>
           <div class="flex-column flex-md-4 flex-align-bottom flex-sm-12 mt-20-sm">
             <div class="text-right text-left-sm">
-              <%= link_to "購入ページへ", new_buying_path(@exhibit), class: "anchor btn btn-primary"%>
+              <%= link_to "購入ページへ", new_order_path(@book), class: "anchor btn btn-primary"%>
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@
         <ol class="breadcrumb-list">
           <li><a href="#">Home</a></li>
           <li><a href="#">デザイン</a></li>
-          <li><span>ランディングページ・デザインメソッド</span></li>
+          <li><span><%= @book.title %></span></li>
         </ol>
       </div>
     </div>
@@ -32,7 +32,7 @@
         <div class="row">
           <div class="col-sm-3 col-xs-12   mb-50-xs">
             <div class="scrollspy-sidebar sidebar-detail" role="complementary">
-              <img src="<%= asset_path "books/book1.png" %>" />
+              <%= image_tag(@book.content) %>
             </div>
           </div>
           <div class="col-md-9 mt-30-xs" role="main">
@@ -41,8 +41,8 @@
                   <div class="section-title text-left">
                     <h4>概要</h4>
                   </div>
-                    <h5 class="heading">ランディングページ・デザインメソッド</h5>
-                    <h5 class="price mt-0">合計金額: <span>1200円</span></h5>
+                    <h5 class="heading"><%= @book.title %></h5>
+                    <h5 class="price mt-0">合計金額: <span><%= @book.price %>円</span></h5>
                 </div>
                 <div id="section-2" class="detail-content">
                   <div class="section-title text-left">
@@ -53,7 +53,7 @@
                       <div class="col-sm-4 col-sm-3">
                         <ul class="list-info no-icon bb-dotted">
                           <li><span class="font600">出品者: </span><a href="#">せきやじょうじ</a></li>
-                          <li><span class="font600">本体価格:</span> 1000円</li>
+                          <li><span class="font600">本体価格:</span> <%= @book.price %>円</li>
                           <li><span class="font600">送料:</span> 200円</li>
                           <li><span class="font600">カテゴリ:</span> デザイン</li>
                           <li><span class="font600">状態: </span> やや傷あり</li>
@@ -64,14 +64,14 @@
                           <div class="itinerary-item">
                             <h5 class="mb-20">この本について</h5>
                             <div class="intro-item-body">
-                              <p>ランディングページのデザインのための、マーケティングやコンバージョンなどに関する幅広い知識を身につけることができます。<br>2016年の秋に購入し、角にやや傷がありますが、中身はまだまだ綺麗なので問題なう読んでいただけるかと思います。</p>
+                              <p><%= @book.discription %></p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="text-center pt-10">
-                      <%= link_to "購入ページへ", new_buying_path(@exhibit), class: "btn btn-primary btn-full-width"%>
+                      <%= link_to "購入ページへ", new_order_path(@book), class: "btn btn-primary btn-full-width"%>
                       <!-- <a href="#" >購入ページヘ</a> -->
                     </div>
                   </div>

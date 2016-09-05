@@ -1,4 +1,4 @@
 class Order < ActiveRecord::Base
-  has_one :books
+  has_one :book
   belongs_to :user
 end

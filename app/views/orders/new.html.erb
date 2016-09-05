@@ -20,7 +20,7 @@
               <h4 class="heading mt-0 text-primary uppercase">注文内容</h4>
               <ul class="price-summary-list">
                 <li>
-                  <h6 class="heading mt-0 mb-0">ランディングページ・デザインメソッド</h6>
+                  <h6 class="heading mt-0 mb-0"><%= @book.title %></h6>
                   <p class="font12 text-light">デザイン</p>
                 </li>
                 <li class="divider"></li>
@@ -31,7 +31,7 @@
                       本体価格
                     </div>
                     <div class="col-xs-5 col-sm-5 text-right">
-                      1200円
+                      <%= @book.price %>
                     </div>
                   </div>
                   <div class="row gap-10 mt-10">
@@ -82,7 +82,7 @@
           </div>
           <div class="col-sm-8 col-md-9" role="main">
             <div class="section-title text-left">
-              <h3>ランディングページ・デザインメソッド<small>を購入します。</small></h3>
+              <h3><%= @book.title %><small>を購入します。</small></h3>
             </div>
             <div class="payment-container">
                 <div class="payment-box">
@@ -128,7 +128,7 @@
             </div>
             <div class="row mt-20 clearfix">
               <div class="col-sm-12 col-md-12">
-                <%= button_to "注文を確定する", buying_path(current_user), method: :get, html:{ class: "btn btn-primary" }, action: "show" %>
+                <%= button_to "注文を確定する", order_path(current_user), method: :get, html:{ class: "btn btn-primary" }, action: "show" %>
               </div>
             </div>
           </div>
@@ -137,7 +137,7 @@
               <h4 class="heading mt-0 text-primary uppercase">注文内容</h4>
               <ul class="price-summary-list">
                 <li>
-                  <h6 class="heading mt-0 mb-0">ランディングページ・デザインメソッド</h6>
+                  <h6 class="heading mt-0 mb-0"></h6>
                   <p class="font12 text-light">デザイン</p>
                 </li>
                 <li class="divider"></li>
@@ -148,7 +148,7 @@
                       本体価格
                     </div>
                     <div class="col-xs-5 col-sm-5 text-right">
-                      1200円
+                      <%= @book.price %>円
                     </div>
                   </div>
                   <div class="row gap-10 mt-10">
@@ -164,14 +164,15 @@
                       消費税
                     </div>
                     <div class="col-xs-5 col-sm-5 text-right">
-                      96円
+                      <%= @tax %>円
                     </div>
                   </div>
                 </li>
                 <li class="divider"></li>
                 <li class="text-right font600 font14">
-                  1296円
+                  <%= @book_price %>円
                 </li>
+                <!-- 送料は固定？ -->
                 <li class="divider"></li>
                 <li>
                   <div class="row gap-10 font600 font14">
@@ -190,7 +191,7 @@
                       <p class="font12">合計金額</p>
                     </div>
                     <div class="col-xs-6 col-sm-6 text-right">
-                      <span class="block font20 font600 mb-5">1200円</span>
+                      <span class="block font20 font600 mb-5"><%= @book.price %>円</span>
                     </div>
                   </div>
                 </li>
