@@ -31,7 +31,7 @@
                       本体価格
                     </div>
                     <div class="col-xs-5 col-sm-5 text-right">
-                      <%= @book.price %>
+                      <%= @book.price %>円
                     </div>
                   </div>
                   <div class="row gap-10 mt-10">
@@ -47,13 +47,13 @@
                       消費税
                     </div>
                     <div class="col-xs-5 col-sm-5 text-right">
-                      96円
+                      <%= @tax %>円
                     </div>
                   </div>
                 </li>
                 <li class="divider"></li>
                 <li class="text-right font600 font14">
-                  1296円
+                  <%= @book_price %>円
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -73,7 +73,7 @@
                       <p class="font12">合計金額</p>
                     </div>
                     <div class="col-xs-6 col-sm-6 text-right">
-                      <span class="block font20 font600 mb-5">1200円</span>
+                      <span class="block font20 font600 mb-5"><%= @book_price %>円</span>
                     </div>
                   </div>
                 </li>
@@ -128,7 +128,7 @@
             </div>
             <div class="row mt-20 clearfix">
               <div class="col-sm-12 col-md-12">
-                <%= button_to "注文を確定する", order_path(current_user), method: :get, html:{ class: "btn btn-primary" }, action: "show" %>
+                <%= button_to "注文を確定する", book_orders_path(@book.id), method: :post, html:{ class: "btn btn-primary" }, action: "show" %>
               </div>
             </div>
           </div>
@@ -191,7 +191,7 @@
                       <p class="font12">合計金額</p>
                     </div>
                     <div class="col-xs-6 col-sm-6 text-right">
-                      <span class="block font20 font600 mb-5"><%= @book.price %>円</span>
+                      <span class="block font20 font600 mb-5"><%= @book_price %>円</span>
                     </div>
                   </div>
                 </li>

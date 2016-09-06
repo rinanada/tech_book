@@ -5,8 +5,15 @@ Rails.application.routes.draw do
   resources :user_details, only: [:new, :edit, :update]
   resources :profiles, only: [:show]
 
-  resources :books, only: [:show]
-  resources :orders, only: [:new, :show, :create]
+  resources :books, only: [:new, :show, :create] do
+    resources :orders, only: [:new, :create, :show]
+  end
+
+
   resources :sellings, only: [:new, :show, :create]
+
+  # namespace :orders do
+  #   resources :books
+  # end
 
 end
