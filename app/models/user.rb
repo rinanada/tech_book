@@ -4,10 +4,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          # , :confirmable
-  has_many :exhibits
-  has_many :buyings
   has_many :user_details
   has_many :profiles
+  has_many :orders
+  has_many :books
+  # mount_uploader :pro_img, UserImageUploader
 
   accepts_nested_attributes_for :user_details, allow_destroy: true
 

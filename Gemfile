@@ -13,6 +13,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'pry'
 gem 'activeadmin'
+gem "railroady"
+gem 'carrierwave'
+gem 'rmagick'
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

@@ -20,7 +20,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :last_sign_in_ip
       # User
 
-      t.text :pro_img
+      t.string :pro_img
       t.text :image_cache
 
 
