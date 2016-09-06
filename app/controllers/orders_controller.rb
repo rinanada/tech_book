@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = @user.orders.create(book_id: @book.id)
-    @book.update(sold?: "y")
+    @book.update(sold?: "y", o_user_id: @user.id)
   end
 
 
