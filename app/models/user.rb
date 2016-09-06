@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   has_many :user_details
   has_many :profiles
   has_many :orders
-  has_many :books
+  has_many :e_books, class_name: 'Book', :foreign_key => 'e_user_id'
+  has_many :o_books, class_name: 'Book', :foreign_key => 'o_user_id'
   # mount_uploader :pro_img, UserImageUploader
 
   accepts_nested_attributes_for :user_details, allow_destroy: true
