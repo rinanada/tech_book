@@ -8,6 +8,7 @@ class UserDetailsController < ApplicationController
   def edit
     @user_detail = UserDetail.find_by(user_id: current_user.id)
     @user_details = UserDetail.where(user_id: current_user.id)
+    @order_books = Book.where(o_user_id: current_user.id)
   end
 
 

@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
-            <h2 class="text-white">せきやじょうじ</h2>
+            <h2 class="text-white"><%= @user_detail.lastname %><%= @user_detail.firstname %></h2>
             <div class="user-thumbnail mb-10" style="background-image:url('images/sekiya.jpeg');">
             <!-- <img src="images/books/book9.jpg" alt="" class="user-thumbnail"> -->
             </div>
@@ -115,50 +115,8 @@
                   <h4 class="sidebar-title">購入履歴</h4>
                   <div class="sidebar-module-inner">
                     <ul class="sidebar-post">
-                      <li class="clearfix">
-                        <a href="blog-single.html">
-                          <div class="image">
-                            <img src="images/books/book1.png" alt="Popular Post" />
-                          </div>
-                          <div class="content">
-                            <h6>ランディングページ・デザインメソッド</h6>
-                            <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i>June 01, 2016</p>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="clearfix">
-                        <a href="blog-single.html">
-                          <div class="image">
-                            <img src="images/books/book2.png" alt="Popular Post" />
-                          </div>
-                          <div class="content">
-                            <h6>すっきり分かるJAVA入門</h6>
-                            <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i>April 25, 2016</p>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="clearfix">
-                        <a href="blog-single.html">
-                          <div class="image">
-                            <img src="images/books/book3.jpeg" alt="Popular Post" />
-                          </div>
-                          <div class="content">
-                            <h6>Learing PHP</h6>
-                            <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i>March 20, 2016</p>
-                          </div>
-                        </a>
-                      </li>
-                      <li class="clearfix">
-                        <a href="blog-single.html">
-                          <div class="image">
-                            <img src="images/books/book4.png" alt="Popular Post" />
-                          </div>
-                          <div class="content">
-                            <h6>パーフェクト Ruby on Rails</h6>
-                            <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i>March 05, 2016</p>
-                          </div>
-                        </a>
-                      </li>
+                      <%= render partial:'order_book',collection: @order_books %>
+
                     </ul>
                   </div>
                 </div>

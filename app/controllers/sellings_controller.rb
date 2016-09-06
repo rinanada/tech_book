@@ -4,8 +4,7 @@ class SellingsController < ApplicationController
   end
 
   def create
-    @user = User.find(current_user)
-    @book = @user.books.build(book_params)
+    @book = current_user.e_books.build(book_params)
     if @book.save
       @book.update(sold?: "n")
       redirect_to root_path, notice: 'new book has been exhibited successfully'
@@ -20,7 +19,7 @@ class SellingsController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :sub_title, :price, :state, :description, :content)
+    params.require(:book).permit(:title, :sub_title, :price, :state, :description, :content).merge(e_user_id: current_user.id)
   end
 end
 

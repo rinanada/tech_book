@@ -9,13 +9,14 @@ class BooksController < ApplicationController
     else
       @mastname  = 'ログイン/新規登録'
     end
-    @books = Book.includes(:user).page(params[:page])
+    @books = Book.includes(:e_user).page(params[:page])
   end
 
 
 
   def show
     @book = Book.find(params[:id])
+    @user_detail = UserDetail.find_by(user_id: current_user.id)
   end
 
 end
