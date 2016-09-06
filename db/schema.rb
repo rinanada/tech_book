@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905072047) do
+ActiveRecord::Schema.define(version: 20160906020612) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -37,11 +37,10 @@ ActiveRecord::Schema.define(version: 20160905072047) do
     t.string   "sub_title",   limit: 255
     t.integer  "price",       limit: 4
     t.integer  "state",       limit: 4
-    t.text     "discription", limit: 65535
-    t.integer  "likes_count", limit: 4
     t.string   "content",     limit: 255
     t.string   "sold?",       limit: 255
     t.integer  "liks_count",  limit: 4
+    t.text     "description", limit: 65535
   end
 
   add_index "books", ["profiles_id"], name: "index_books_on_profiles_id", using: :btree
@@ -57,7 +56,7 @@ ActiveRecord::Schema.define(version: 20160905072047) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",    limit: 4
-    t.integer  "position",   limit: 4
+    t.integer  "book_id",    limit: 4
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree

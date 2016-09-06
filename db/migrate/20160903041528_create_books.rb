@@ -13,6 +13,8 @@ class CreateBooks < ActiveRecord::Migration
       t.integer :likes_count
       t.string :content
       t.string :sold?
+      t.integer :likes_count
+      t.integer :order_user_id
     end
   end
 end

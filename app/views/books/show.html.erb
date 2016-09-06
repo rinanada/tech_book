@@ -64,14 +64,14 @@
                           <div class="itinerary-item">
                             <h5 class="mb-20">この本について</h5>
                             <div class="intro-item-body">
-                              <p><%= @book.discription %></p>
+                              <p><%= @book.description %></p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="text-center pt-10">
-                      <%= link_to "購入ページへ", new_order_path(@book), class: "btn btn-primary btn-full-width"%>
+                      <%= link_to "購入ページへ", new_book_order_path(book_id: @book.id), class: "btn btn-primary btn-full-width"%>
                       <!-- <a href="#" >購入ページヘ</a> -->
                     </div>
                   </div>
