@@ -1,0 +1,15 @@
+<li class="clearfix">
+  <a href="blog-single.html">
+    <div class="image">
+     <%= image_tag order_book.content %>
+    </div>
+    <div class="content">
+      <h6><%= order_book.title %></h6>
+      <p class="recent-post-sm-meta"><i class="fa fa-clock-o mr-5"></i><%= order_book.created_at.strftime("%B %d") %></p>
+    </div>
+  </a>
+</li>
+
+<!-- 本購入時の時間入力は
+@order = Order.find_by(user_id: current_user.id)
+＠order.created_atをeachで取ってきて1個ずつ部分テンプレートに入力せねばならず、本出品時の時間入力にとどめた。 -->
