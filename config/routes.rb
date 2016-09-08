@@ -5,15 +5,11 @@ Rails.application.routes.draw do
   resources :user_details, only: [:new, :edit, :update]
   resources :profiles, only: [:show]
 
+  namespace :books do
+    get "/database", to: "search#database"
+  end
+
   resources :books, only: [:new, :show, :create] do
     resources :orders, only: [:new, :create, :show]
   end
-
-
-  resources :sellings, only: [:new, :show, :create]
-
-  # namespace :orders do
-  #   resources :books
-  # end
-
 end

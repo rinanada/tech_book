@@ -40,9 +40,9 @@
                     <%= f.number_field :price, class: "form-control", placeholder: "希望販売価格" %>
                   </div>
                   <div class="form-group">
-                    <input name="month" class="form-control" placeholder="カテゴリ">
+                    <%= text_field_tag "book[category_list]", @book.category_list.join(','), class: "form-control", "data-role" => "tagsinput" %>
                   </div>
-                  <!-- tag -->
+                  <!-- tagにplaceholderはつけられないので、labelで -->
                   <div class="form-group">
                     <%= f.number_field :state, class: "form-control", placeholder: "状態" %>
                   </div>

@@ -10,13 +10,32 @@ class BooksController < ApplicationController
       @mastname  = 'ログイン/新規登録'
     end
     @books = Book.includes(:e_user).page(params[:page])
+    @categories = ActsAsTaggableOn::Tag.most_used(7)
   end
 
+  def new
+    @book = Book.new
+  end
 
+  def create
+    @book = current_user.e_books.build(book_params)
+    if @book.save
+      @book.update(sold?: "n")
+      redirect_to root_path, notice: 'new book has been exhibited successfully'
+    else
+      redirect_to new_selling_path, alert: 'error'
+    end
+  end
 
   def show
     @book = Book.find(params[:id])
     @user_detail = UserDetail.find_by(user_id: current_user.id)
+  end
+
+  private
+
+  def book_params
+    params.require(:book).permit(:title, :sub_title, :price, :state, :description, :content, :category_list).merge(e_user_id: current_user.id)
   end
 
 end
