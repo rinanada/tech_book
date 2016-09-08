@@ -1,6 +1,7 @@
 class Books::SearchController < ApplicationController
+  before_action :books_search
+
  def database
-    books_search
     @searcher = { category: params[:category], keyword: params[:keyword] }
     @categories = ActsAsTaggableOn::Tag.all.order(taggings_count: :desc)
   end
@@ -16,7 +17,7 @@ class Books::SearchController < ApplicationController
     else
       @books = Book.where("title LIKE ?", "%#{params[:keyword]}").includes(:o_user)
     end
-    if params[:reject_sold] == "yes"
+    if params[:sold] == "y"
       @books = @books.where(o_user_id: nil)
     end
   end
