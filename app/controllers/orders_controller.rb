@@ -12,9 +12,7 @@ class OrdersController < ApplicationController
     @book.update(sold?: "y", o_user_id: @user.id)
   end
 
-
   private
-
   def user_detail_params
     params.require(:user_detail).permit(:lastname, :firstname, :postalcode, :place, :email, :callnumber)
   end

@@ -3,11 +3,13 @@
       <div class="image">
         <%= link_to image_tag(book.content),book_path(book) %>
         <div class="absolute-in-image">
-          <div class="duration"><span>デザイン</span></div>
+          <% book.category_list.each do |category_tag| %>
+            <div class="duration" ><span><%= category_tag %></span></div>
+          <% end %>
           <% if book.sold? == "y" %>
-          <div class="sold_out_image" >
-           <img src= "assets/soldout.png" >
-          </div>
+            <div class="sold_out_image" >
+            <img src= "assets/soldout.png" >
+            </div>
           <% end %>
         </div>
 
