@@ -3,8 +3,8 @@ class OrdersController < ApplicationController
     before_action :authenticate_user!, only: [:new ,:create]
 
   def new
-    @book_price = (@book.price + 200) * 1.08.floor
-    @tax = (@book.price + 200) * 0.08.floor
+    @book_price = (@book.price + 200) * 1.08.round
+    @tax = (@book.price + 200) * 0.08.round
   end
 
   def create
