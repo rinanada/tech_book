@@ -58,7 +58,11 @@
                       </li>
                       <% end %>
                       <li class="user-action">
+                        <% if user_signed_in? %>
+                          <div class="btn"><%= @mastname %></div>
+                        <% else %>
                           <a data-toggle="modal" href="#loginModal" class="btn"><%= @mastname %></a>
+                        <% end %>
                       </li>
                     </ul>
                   </div>
