@@ -6,5 +6,4 @@ class Book < ActiveRecord::Base
   has_many :categories
   mount_uploader :content, BookImageUploader
   acts_as_taggable_on :categories
-
 end
