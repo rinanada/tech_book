@@ -50,7 +50,7 @@
                           <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
-                        <% unless @user_detail.present? %>
+                        <% if @user_detail.present? %>
                           <li><%= link_to "My Page", edit_user_detail_path(current_user) %></li>
                         <% else %>
                           <li><%= link_to "My Page", new_user_detail_path %></li>
