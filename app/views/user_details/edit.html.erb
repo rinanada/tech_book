@@ -2,7 +2,7 @@
   <!-- start Main Wrapper -->
   <div class="main-wrapper scrollspy-container">
     <!-- start end Page title -->
-    <div class="page-title" style="background-image:url('images/my_room.jpeg');">
+    <div class="page-title" style="background-image:url(<%= asset_path 'my_room.jpeg' %>);">
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
@@ -23,7 +23,7 @@
               <div class="payment-header clearfix">
                 <h5 class="heading mt-0">購入者情報</h5>
               </div>
-              <%= form_for @user_detail, url: { action: :update } , class:"payment-traveller mb-0" do |f| %>
+              <%= form_for @user_detail,url: { :action => 'update' }  , class:"payment-traveller mb-0" do |f| %>
                 <div class="form-horizontal">
                   <div class="form-group gap-20">
                     <label class="col-sm-4 col-md-4 control-label">姓</label>
@@ -64,8 +64,8 @@
                     </div>
                   </div>
                 </div>
+              <%= f.submit "購入者情報の編集", class: "btn btn-primary btn-sm btn-inverse" %>
               <% end %>
-            <%= button_to "購入者情報の編集", { action: :new }, class: "btn btn-primary btn-sm btn-inverse" %>
             </div>
             <div class="payment-box">
               <div class="payment-header clearfix">
