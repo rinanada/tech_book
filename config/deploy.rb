@@ -12,7 +12,7 @@ set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 # 保持するバージョンの個数(※後述)
 set :keep_releases, 5
-set :rbenv_ruby, '2.1.3'
+set :rbenv_ruby, '2.3.1'
 
 set :log_level, :debug
 
