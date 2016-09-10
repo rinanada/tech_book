@@ -24,6 +24,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -33,4 +37,8 @@ end
 
 group :production do
   gem 'rails_12factor'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
