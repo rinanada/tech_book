@@ -5,7 +5,7 @@ set :application, 'tech_book_l'
 set :repo_url, 'http://github.com/rinanada/tech_book_l.git'
 
 set :branch, 'master'
-set :deploy_to, '/var/tech_book_l'
+set :deploy_to, '/var/www/html/tech_book_l'
 # シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 # シンボリックリンクをはるフォルダ。(※後述)
