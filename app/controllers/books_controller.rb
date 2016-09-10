@@ -8,7 +8,7 @@ class BooksController < ApplicationController
     else
       @mastname  = 'ログイン/新規登録'
     end
-    @books = Book.includes(:e_user).page(params[:page])
+    @books = Book.includes(:e_user).page(params[:page]).per(4)
     @categories = ActsAsTaggableOn::Tag.most_used(7)
   end
 
