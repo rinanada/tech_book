@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.6.1'
 
 set :application, 'tech_book_l'
 set :repo_url, 'http://github.com/rinanada/tech_book_l.git'
