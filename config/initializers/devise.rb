@@ -246,6 +246,7 @@ Devise.setup do |config|
 
   config.omniauth :facebook, '185055705253222', '12a26974c3eda87e09772feeb8866a47'
 
+
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
