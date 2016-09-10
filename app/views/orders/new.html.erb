@@ -47,13 +47,13 @@
                       消費税
                     </div>
                     <div class="col-xs-5 col-sm-5 text-right">
-                      <%= @tax %>円
+                      <%= @book.tax %>円
                     </div>
                   </div>
                 </li>
                 <li class="divider"></li>
                 <li class="text-right font600 font14">
-                  <%= @book_price %>円
+                  <%= @book.total_price %>円
                 </li>
                 <li class="divider"></li>
                 <li>
@@ -73,7 +73,7 @@
                       <p class="font12">合計金額</p>
                     </div>
                     <div class="col-xs-6 col-sm-6 text-right">
-                      <span class="block font20 font600 mb-5"><%= @book_price %>円</span>
+                      <span class="block font20 font600 mb-5"><%= @book.total_price %>円</span>
                     </div>
                   </div>
                 </li>

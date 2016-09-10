@@ -6,4 +6,11 @@ class Book < ActiveRecord::Base
   has_many :categories
   mount_uploader :content, BookImageUploader
   acts_as_taggable_on :categories
+  def tax
+    (price + 200) * 0.08.round
+  end
+
+  def total_price
+    (price + 200) * 1.08.round
+  end
 end
