@@ -2,7 +2,7 @@
   <!-- start Main Wrapper -->
   <div class="main-wrapper">
     <!-- start end Page title -->
-    <div class="page-title" style="background-image:url('images/books_on_desk2.jpg');">
+    <div class="page-title" style="background-image:url(<%= asset_path 'books_on_desk2.jpg'%>);">
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3">
@@ -15,8 +15,8 @@
     <div class="breadcrumb-wrapper bg-light-2">
       <div class="container">
         <ol class="breadcrumb-list booking-step">
-          <li><a href="">トップ</a></li>
-          <li><span>カテゴリ：</span><a href="#">デザイン</a><span>キーワード：デザイン</span></li>
+          <li><%= link_to "トップ", root_path %></li>
+          <li><span>新規出品</span></li>
         </ol>
       </div>
     </div>
@@ -67,7 +67,8 @@
         <div class="row">
           <div class="col-xs-12 col-sm-5 col-md-3">
             <div class="footer-logo">
-              <img src="images/techbook_logo.png" alt="Logo" />
+
+              <img src="<%= asset_path 'techbook_logo.png'%>" alt="Logo" />
             </div>
             <p class="footer-address">150-0000 東京都渋谷区道玄坂２丁目<br>新大宗ビル３号館８階<br/> <i class="fa fa-phone"></i> +66 28 878 5452 <br/> <i class="fa fa-phone"></i> +66 2 547 2223 <br/> <i class="fa fa-envelope-o"></i> <a href="#">support@techbook.com</a></p>
             <div class="footer-social">
