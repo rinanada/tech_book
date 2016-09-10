@@ -51,6 +51,28 @@ namespace :deploy do
     end
   end
 end
+
+namespace :deploy do
+  Rake::Task["deploy:check:directories"].clear
+  Rake::Task["deploy:check:linked_dirs"].clear
+
+
+  namespace :check do
+    desc '(overwrite) Check shared and release directories exist'
+    task :directories do
+      on release_roles :all do
+        execute :sudo, :mkdir, '-pv', shared_path, releases_path
+      end
+    end
+
+    task :linked_dirs do
+      next unless any? :linked_dirs
+      on release_roles :all do
+        execute :sudo, :mkdir, '-pv', linked_dirs(shared_path)
+      end
+    end
+  end
+end
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
