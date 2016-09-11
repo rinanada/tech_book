@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: tech_book_l_production
-  username: tech_book_l
-  password: <%= ENV['TECH_BOOK_L_DATABASE_PASSWORD'] %>
+  username: root
+  password:
+  socket: /tmp/mysql.sock
