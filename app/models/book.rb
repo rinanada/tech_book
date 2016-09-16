@@ -12,7 +12,6 @@ class Book < ActiveRecord::Base
   mount_uploader :content, BookImageUploader
   acts_as_taggable_on :categories
   def tax
-    binding.pry
     (price + 200) * 0.08.round
   end
 
@@ -30,8 +29,7 @@ class Book < ActiveRecord::Base
   # => indexで代用
 
   def add_js
-    # binding.pry
-    title = self.title.gsub(/js/) do |matched|
+    self.title = self.title.gsub(/js/) do |matched|
     "javascript"
     end
   end
