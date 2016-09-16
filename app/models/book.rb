@@ -4,12 +4,15 @@ class Book < ActiveRecord::Base
   has_one :order
   has_many :likes
   has_many :categories
+
+  before_validation :add_js
   validates :title, presence: true
   validates :title, length: { maximum: 15}
   validates :price, numericality: { greater_than_or_equal_to: 0 }
   mount_uploader :content, BookImageUploader
   acts_as_taggable_on :categories
   def tax
+    binding.pry
     (price + 200) * 0.08.round
   end
 
@@ -26,9 +29,16 @@ class Book < ActiveRecord::Base
   # default_scope -> { order("created_at desc") }
   # => indexで代用
 
-  before_validation do |book|
-    book.title = self.title.gsub(/js/) do |matched|
+  def add_js
+    # binding.pry
+    title = self.title.gsub(/js/) do |matched|
     "javascript"
     end
   end
+
+  # def destroy_book
+  #   book.title = self.title.gsub(/js/) do |matched|
+  #   "javascript"
+  #   end
+  # end
 end
