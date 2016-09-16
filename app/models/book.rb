@@ -19,10 +19,16 @@ class Book < ActiveRecord::Base
 
   scope :costry, -> { where("price > ?", 3000) }
   # Book.costry
-  scope :writen_about, -> { where("name like ?", "%#{theme}")}
+  scope :writen_about, -> { where("name like ?", "%#{theme}") }
   # Book.costry.writen_about("Java")
   # =>「高価」で「Java」について書かれた本を探している
 
   # default_scope -> { order("created_at desc") }
   # => indexで代用
+
+  before_validation do |book|
+    book.title = self.title.gsub(/js/) do |matched|
+    "javascript"
+    end
+  end
 end
