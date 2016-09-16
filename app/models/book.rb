@@ -34,9 +34,8 @@ class Book < ActiveRecord::Base
     end
   end
 
-  # def destroy_book
-  #   book.title = self.title.gsub(/js/) do |matched|
-  #   "javascript"
-  #   end
-  # end
+  after_destroy do |book|
+    binding.pry
+    Rails.logger.info "Book is deleted: #{book.attributes.inspect}"
+  end
 end
