@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
-gem 'pry'
+gem 'pry-byebug'
 gem 'activeadmin'
 gem "railroady"
 gem 'carrierwave'
@@ -24,6 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
+  gem 'hirb'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
