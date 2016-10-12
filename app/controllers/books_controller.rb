@@ -22,7 +22,7 @@ class BooksController < ApplicationController
       @book.update(sold?: "n")
       redirect_to root_path, notice: 'new book has been exhibited successfully'
     else
-      redirect_to new_selling_path, alert: 'error'
+      redirect_to new_book_path, alert: 'error'
     end
   end
 
