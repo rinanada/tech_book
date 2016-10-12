@@ -58,12 +58,10 @@
             <div class="pager-wrappper clearfix">
               <div class="pager-innner">
                 <div class="flex-row flex-align-middle">
-                  <div class="flex-column flex-sm-12">
-                    <%= @books.count %>件中1から8件目を表示しています。
-                  </div>
+
                   <div class="flex-column flex-sm-12">
                     <nav class="pager-right">
-                      <ul class="pagination">
+<!--                       <ul class="pagination">
                         <li>
                           <a href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
@@ -81,11 +79,14 @@
                             <span aria-hidden="true">&raquo;</span>
                           </a>
                         </li>
-                      </ul>
+                      </ul> -->
                     </nav>
                   </div>
                 </div>
               </div>
+                <div class="flex-column flex-sm-12">
+                    <%= @books.count %>件中1から<%= @books.count %>件目を表示しています。
+                </div>
             </div>
           </div>
         </div>
