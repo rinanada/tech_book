@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   # mount_uploader :pro_img, UserImageUploader
 
   accepts_nested_attributes_for :user_details, allow_destroy: true
-  validates_presence_of :lastname, :firstname, :postalcode, :callnumber, :place
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
