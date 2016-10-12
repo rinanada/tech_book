@@ -11,7 +11,7 @@ class Book < ActiveRecord::Base
   validates :title, presence: true
   validates :title, length: { maximum: 60 }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
-  validates :state, presence: true
+  # validates :state, presence: true
 
   mount_uploader :content, BookImageUploader
   acts_as_taggable_on :categories

@@ -24,7 +24,6 @@ class UserDetailsController < ApplicationController
   end
 
   def update
-    binding.pry
     if @user_detail.update(user_details_params)
       redirect_to root_path, notice: 'Your profile was successfully updated'
     else

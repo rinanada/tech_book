@@ -1,7 +1,7 @@
 <div class="GridLex-col-3_sm-4_xs-12 mb-30">
   <div class="package-grid-item">
       <div class="image">
-        <%= link_to image_tag(book.content),book_path(book) %>
+        <%= link_to image_tag(book.content.url),book_path(book) %>
         <div class="absolute-in-image">
           <% book.category_list.each do |category_tag| %>
             <div class="duration" ><span><%= category_tag %></span></div>
