@@ -8,7 +8,7 @@ CarrierWave.configure do |config|
 
     case Rails.env
     when 'development'
-      config.storage = :fog
+      config.storage = :file
       # config.fog_directory  = 'techbook2016'
       # config.asset_host = 'https://s3.amazonaws.com/techbook2016'
     when 'test'
