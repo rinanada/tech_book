@@ -24,6 +24,8 @@ gem 'omniauth-twitter'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'byebug'
   gem 'hirb'
   gem 'capistrano'
@@ -37,6 +39,14 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+end
+
 group :production do
   gem 'rails_12factor'
 end
@@ -44,3 +54,4 @@ end
 group :production, :staging do
   gem 'unicorn'
 end
+
