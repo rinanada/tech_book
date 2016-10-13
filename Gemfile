@@ -24,8 +24,8 @@ gem 'omniauth-twitter'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'rspec-rails',"~> 3.1.0"
+  gem 'factory_girl_rails',"~> 4.2.1"
   gem 'byebug'
   gem 'hirb'
   gem 'capistrano'
@@ -40,11 +40,11 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'selenium-webdriver'
+  gem 'faker', "~> 1.1.2"
+  gem 'capybara', "~> 2.1.0"
+  gem 'database_cleaner', "~> 1.0.1"
+  gem 'launchy', "~> 2.3.0"
+  gem 'selenium-webdriver', "~> 2.39.0"
 end
 
 group :production do
