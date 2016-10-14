@@ -15,6 +15,7 @@ gem 'activeadmin'
 gem "railroady"
 gem 'carrierwave'
 gem 'carrierwave-aws'
+gem 'fog', require: 'fog/aws'
 gem 'rmagick'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'kaminari'
