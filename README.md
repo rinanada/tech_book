@@ -17,35 +17,42 @@
 ---
 ## association
 
-- has_many :posts
-- has_many :reviews
-- has_many :likes
-- has_many :buyings
-- has_many :messages
+- has_many :books
+- has_many :orders
+- has_many :user_details
+
+## table
+
+- string :pro_img
+- text :image_cache
+
+
+
+<!-- usersコントローラー→ログイン周り、ユーザー紹介・詳細画面、購入 -->
+
+# UserDeatil
+---
+## association
+
+- belongs_to :user
+- has_one :order
 
 ## table
 
 - string :lastname
 - string :firstname
-- text :pro_img
-- text :image_cache
-- text :introduction
 - integer :callnumber
-- text :address
+- text :place
 - integer :postal_code
+- integer :user_id
 
 
-<!-- usersコントローラー→ログイン周り、ユーザー紹介・詳細画面、購入 -->
-
-# Post
+# Book
 ---
 ## association
 
 - belongs_to :user
-- belongs_to :category
-- has_one :captureimages
-- has_many :reviews
-- has_many :buyings
+- has_many :orders
 
 ## table
 
@@ -53,49 +60,29 @@
 - string :sub_title
 - integer :price
 - integer :state
-- integer :user_id
-- integer :category_id
+- integer :likes_count
+- string :content
+- string :sold?
+- text :description
+- integer :e_user_id
+- integer :o_user_id
 
-<!-- +price消費税 -->
 <!-- stateで本の 可/良い/非常に良い/ほぼ新品 enum -->
-<!-- postsコントローラー→出品(if user sign inで) -->
 
-# CaptureImage
+#Order
 ---
 ## association
 
-- belongs_to :post
-
-## table
-
-- integer :post_id
-- text :content
-
-#Buying
----
-## association
-
-- belongs_to :post
+- belongs_to :book
 - belongs_to :user
+- belongs_to :user_detail
 
 
 ## table
 
-- integer :post_id
+- integer :book_id
 - integer :user_id
-
-#Category
----
-
-## association
-- has_many :post
-
-## table
-- integer :langage
-- integer :design
-- integer :other
-
-<!-- 後々大区分、小区分と分けられたら...STI  -->
+- integer :pay_method
 
 
 # Like
