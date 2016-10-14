@@ -25,12 +25,22 @@ gem 'config'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
+  gem 'rspec-rails',"~> 3.1.0"
+  gem 'factory_girl_rails',"~> 4.2.1"
   gem 'byebug'
   gem 'hirb'
   gem 'capistrano'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara',"~> 2.2.0"
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 group :development do
