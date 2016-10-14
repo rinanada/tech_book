@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root "books#index"
-  devise_for :users, controllers: { sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
-
-  get '/auth/:provider/callback' => 'sessions#create'
-  get '/auth/failure' => 'sessions#failure'
-  get '/logout' => 'sessions#destroy', as: :logout
-
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+    }
   resources :user_details, only: [:new, :create, :edit, :update]
   resources :profiles, only: [:show]
 
