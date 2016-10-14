@@ -4,7 +4,7 @@ class BookImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
-  storage :file
+  storage :files
 
 
 
