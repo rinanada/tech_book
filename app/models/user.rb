@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   # mount_uploader :pro_img, UserImageUploader
 
   accepts_nested_attributes_for :user_details, allow_destroy: true
+  devise :omniauthable, omniauth_providers: [:facebook, :twitter]
 
 def self.from_omniauth(auth)
   where(auth.slice(:provider, :uid)).first_or_create do |user|
