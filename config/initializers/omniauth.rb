@@ -7,3 +7,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     Rails.application.secrets.facebook_secret_key, scope: 'email,status_update,publish_actions'
 end
 
+OmniAuth.config.on_failure = Proc.new do |env|
+  OmniAuth::FailureEndpoint.new(env).redirect_to_failure
+end
