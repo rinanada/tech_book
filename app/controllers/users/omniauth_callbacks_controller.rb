@@ -1,24 +1,26 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-    def facebook
-    @user = User.from_omniauth(request.env["omniauth.auth"])
-    if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-    else
-      # session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to root_path, flash: { error: "Facebookでの認証に失敗しました" }
-    end
+  def facebook
+    callback_from :facebook
   end
-
 
   def twitter
-    set_dummy_email
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    callback_from :twitter
+  end
+
+  private
+
+  def callback_from(provider)
+    provider = provider.to_s
+
+    @user = User.find_for_oauth(request.env['omniauth.auth'])
+
     if @user.persisted?
-      sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
-      set_flash_message(:notice, :success, :kind => "Twitter") if is_navigational_format?
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
+      sign_in_and_redirect @user, event: :authentication
     else
-      redirect_to root_path, flash: { error: "Twitterでの認証に失敗しました" }
+      session["devise.#{provider}_data"] = request.env['omniauth.auth']
+      redirect_to root_path
     end
   end
+
 end
