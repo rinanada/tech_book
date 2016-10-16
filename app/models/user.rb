@@ -13,15 +13,25 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :user_details, allow_destroy: true
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
-  
 
-def self.from_omniauth(auth)
-  where(auth.slice(:provider, :uid)).first_or_create do |user|
-    user.email = auth.info.email
-    user.password = Devise.friendly_token[0,20]
+  def self.from_omniauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    User.dummy_email(auth),
+        password: Devise.friendly_token[0, 20]
+      )
+    end
+
+    user
   end
-end
 
+  private
 
-
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
+  end
 end
