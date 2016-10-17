@@ -1,4 +1,3 @@
 class Order < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :book
+  belongs_to :ordering, polymorphic: true
 end
