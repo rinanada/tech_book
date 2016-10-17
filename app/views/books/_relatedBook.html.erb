@@ -1,0 +1,18 @@
+<div class="GridLex-col-4_sm-4_xs-12 mb-20">
+  <div class="package-grid-item">
+    <div class="image">
+      <%= link_to image_tag(book.content.url), book_path(book) %>
+      <div class="absolute-in-image">
+        <% book.category_list.each do |category_tag| %>
+          <div class="duration" ><span><%= category_tag %></span></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="content clearfix">
+      <h6><%= book.title %></h6>
+      <div class="absolute-in-content">
+        <div class="price"><%= book.price %></div>
+      </div>
+    </div>
+  </div>
+</div>

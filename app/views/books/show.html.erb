@@ -83,26 +83,8 @@
                   </div>
                   <div class="GridLex-gap-20-wrappper package-grid-item-wrapper on-page-result-page alt-smaller">
                     <div class="GridLex-grid-noGutter-equalHeight">
-                    <%= 3.times do%>
-                      <div class="GridLex-col-4_sm-4_xs-12 mb-20">
-                        <div class="package-grid-item">
-                          <a href="#">
-                            <div class="image">
-                              <img src="<%= asset_path "book9.jpg" %>" alt="Tour Package" />
-                              <div class="absolute-in-image">
-                                <div class="duration"><span>デザイン</span></div>
-                              </div>
-                            </div>
-                            <div class="content clearfix">
-                              <h6>だから、そのデザインはダメなんだ。</h6>
-                              <div class="absolute-in-content">
-                                <div class="price">$1500</div>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                      </div>
-                    <% end %>
+                      <%= render partial: 'books/relatedBook', collection: @related_books, as: :book %>
+
                     </div>
                   </div>
                 </div>
