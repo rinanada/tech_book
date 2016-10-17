@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
   def index
     if user_signed_in?
       @user_detail = UserDetail.find_by(user_id: current_user.id)
@@ -28,13 +29,12 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @user_detail = UserDetail.find_by(user_id: current_user.id)
+    @user_detail = UserDetail.find_by(id: @book.user_detail.id)
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :sub_title, :price, :state, :description, :content, :category_list).merge(e_user_id: current_user.id)
+    params.require(:book).permit(:title, :sub_title, :price, :state, :description, :content, :category_list).merge(e_user_id: current_user.id, user_detail_id: current_user.user_detail.id)
   end
-
 end
