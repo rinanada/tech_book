@@ -54,7 +54,9 @@
                           <li><span class="font600">出品者: </span><a href="#"><%= @user_detail.lastname %><%= @user_detail.firstname %></a></li>
                           <li><span class="font600">本体価格:</span> <%= @book.price %>円</li>
                           <li><span class="font600">送料:</span> 200円</li>
-                          <li><span class="font600">カテゴリ:</span> デザイン</li>
+                          <li><span class="font600">カテゴリ:</span> <% @book.category_list.each do |category_tag| %><%= category_tag %>
+                            <% end %>
+                          </li>
                           <li><span class="font600">状態: </span> やや傷あり</li>
                         </ul>
                       </div>
