@@ -31,20 +31,24 @@ ActiveRecord::Schema.define(version: 20161015060517) do
   create_table "books", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "profiles_id", limit: 4
-    t.string   "title",       limit: 255
-    t.string   "sub_title",   limit: 255
-    t.integer  "price",       limit: 4
-    t.integer  "state",       limit: 4
-    t.integer  "likes_count", limit: 4
-    t.string   "content",     limit: 255
-    t.string   "sold?",       limit: 255
-    t.text     "description", limit: 65535
-    t.integer  "e_user_id",   limit: 4
-    t.integer  "o_user_id",   limit: 4
+    t.integer  "user_id",        limit: 4
+    t.integer  "profiles_id",    limit: 4
+    t.string   "title",          limit: 255
+    t.string   "sub_title",      limit: 255
+    t.integer  "price",          limit: 4
+    t.integer  "state",          limit: 4
+    t.text     "description",    limit: 65535
+    t.integer  "likes_count",    limit: 4
+    t.string   "content",        limit: 255
+    t.string   "sold?",          limit: 255
+    t.integer  "o_user_id",      limit: 4
+    t.integer  "e_user_id",      limit: 4
+    t.integer  "pay_method",     limit: 4
+    t.integer  "user_detail_id", limit: 4
   end
 
   add_index "books", ["profiles_id"], name: "index_books_on_profiles_id", using: :btree
+  add_index "books", ["user_id"], name: "index_books_on_user_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at"
@@ -55,12 +59,12 @@ ActiveRecord::Schema.define(version: 20161015060517) do
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",    limit: 4
-    t.integer  "book_id",    limit: 4
-    t.integer  "pay_method", limit: 4
+    t.integer  "ordering_id",   limit: 4
+    t.string   "ordering_type", limit: 255
   end
 
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+  add_index "orders", ["ordering_id"], name: "index_orders_on_ordering_id", using: :btree
+  add_index "orders", ["ordering_type"], name: "index_orders_on_ordering_type", using: :btree
 
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at"
