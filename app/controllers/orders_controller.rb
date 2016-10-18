@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
 
   def set_user
     @user = User.find(current_user)
-    @user_detail = UserDetail.find_by(user_id: @user.id)
     @book = Book.find(params[:book_id])
+    @user_detail = UserDetail.find_by(user_id: current_user.id)
   end
 end
