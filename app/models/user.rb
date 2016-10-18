@@ -4,14 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
          # , :confirmable
-  has_one :user_detail
+  has_many :user_details
   has_many :profiles
   has_many :orders, as: 'ordering'
   has_many :e_books, class_name: 'Book', :foreign_key => 'e_user_id'
   has_many :o_books, class_name: 'Book', :foreign_key => 'o_user_id'
   # mount_uploader :pro_img, UserImageUploader
 
-  accepts_nested_attributes_for :user_detail, allow_destroy: true
+  accepts_nested_attributes_for :user_details, allow_destroy: true
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
 
   def self.from_omniauth(auth)
