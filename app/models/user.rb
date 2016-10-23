@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :o_books, class_name: 'Book', :foreign_key => 'o_user_id'
   # mount_uploader :pro_img, UserImageUploader
 
+  validates :email, presence: true
+  validates :password, length: { minimum: 6 }, presence: true
+
   accepts_nested_attributes_for :user_details, allow_destroy: true
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
 
