@@ -9,25 +9,35 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+
+# login
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+
+# debug
 gem 'pry-byebug'
+
+# admin
 gem 'activeadmin'
-gem "railroady"
+# gem 'cancancan'
+
+# image_file
 gem 'carrierwave'
 gem 'carrierwave-aws'
 gem 'fog', require: 'fog/aws'
 gem 'rmagick'
+
+gem "railroady"
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'kaminari'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
 gem 'config'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'rspec-rails',"~> 3.1.0"
-  gem 'factory_girl_rails',"~> 4.2.1"
+  gem 'factory_girl_rails'
   gem 'byebug'
   gem 'hirb'
   gem 'capistrano'
